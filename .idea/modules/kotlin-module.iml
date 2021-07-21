@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="NewModuleRootManager">
+    <output url="file://build" />
+    <output-test url="file://build" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../kotlin-module">
+      <sourceFolder url="file://$MODULE_DIR$/../../../kotlin-module/src/main" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../kotlin-module/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../kotlin-module/build" />
+    </content>
+    <orderEntry type="jdk" jdkName="Kotlin SDK" jdkType="KotlinSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="web_js" level="project" />
+  </component>
+</module>

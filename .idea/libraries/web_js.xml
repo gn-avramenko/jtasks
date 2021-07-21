@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="libraryTable">
+   <library name="web_js">
+      <CLASSES>
+         <root url="jar:///home/avramenko/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-js/1.4.30/6c66d1db9c724b087c3a6f37aecffd24d0b14f26/kotlin-stdlib-js-1.4.30.jar!/"/>
+         <root url="jar:///home/avramenko/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/atomicfu-js/0.15.1/5099f5bb286ba06e476a6048eba0e462ec00b9b2/atomicfu-jslegacy-0.15.1.jar!/"/>
+         <root url="jar:///home/avramenko/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-js/1.4.3/20a376f56fb1872497eb5e854c138ceec4c09a0c/kotlinx-coroutines-core-jslegacy-1.4.3.jar!/"/>
+      </CLASSES>
+      <JAVADOC/>
+      <SOURCES>
+         <root url="jar:///home/avramenko/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-js/1.4.30/5729944dc91bf28689461fe44b9e401fd41a84a7/kotlin-stdlib-js-1.4.30-sources.jar!/"/>
+         <root url="jar:///home/avramenko/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/atomicfu-js/0.15.1/8742315828a056f5a5388fa0b7d85a311f6fbfd8/atomicfu-js-0.15.1-sources.jar!/"/>
+         <root url="jar:///home/avramenko/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-js/1.4.3/5e870c8ab34abd4e72ce308e76aa65ce20ab42e5/kotlinx-coroutines-core-js-1.4.3-sources.jar!/"/>
+      </SOURCES>
+   </library>
+</component>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="ProjectModuleManager">
+   <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jtasks.iml" filepath="$PROJECT_DIR$/.idea/modules/jtasks.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.common.core.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.common.core.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.common.spf.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.common.spf.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.common.core.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.common.core.test.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.core.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.core.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.db.h2.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.db.h2.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.db.postgres.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.db.postgres.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.core.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.core.test.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.common.standard.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.common.standard.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.standard.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.standard.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.common.reports.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.common.reports.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.reports.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.reports.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.core.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.core.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.core.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.core.test.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.standard.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.standard.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.reports.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.reports.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.easyui.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.easyui.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.common.core.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.common.core.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.server.core.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.server.core.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.server.core.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.server.core.test.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.server.reports.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.server.reports.iml" group="jtasks"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.web.core.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.web.core.iml" group="jtasks"/>
+   </modules>
+</component>
