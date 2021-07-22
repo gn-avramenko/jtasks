@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rest xmlns="http://gridnine.com/jasmine/rest" id="jtasks">
+    <group id="core">
+        <operation id="login" handler="com.gridnine.jtasks.server.core.rest.LoginRestHandler">
+            <request id="com.gridnine.jtasks.common.core.model.rest.LoginRequest">
+                <property id="login" type="STRING"/>
+                <property id="password" type="STRING"/>
+            </request>
+            <response id="com.gridnine.jtasks.common.core.model.rest.LoginResponse">
+                <property id="success" type="BOOLEAN" non-nullable="true"/>
+                <property id="loginErrorMessage" type="STRING"/>
+                <property id="passwordErrorMessage" type="STRING"/>
+            </response>
+        </operation>
+        <operation id="logout" handler="com.gridnine.jtasks.server.core.rest.LogoutRestHandler">
+            <request id="com.gridnine.jtasks.common.core.model.rest.LogoutRequest"/>
+            <response id="com.gridnine.jtasks.common.core.model.rest.LogoutResponse"/>
+        </operation>
+    </group>
+
+</rest>
+
+

@@ -15,5 +15,6 @@
       <orderEntry type="module" module-name="com.gridnine.jasmine.common.standard"/>
       <orderEntry type="module" module-name="com.gridnine.jasmine.server.core"/>
       <orderEntry type="module" module-name="com.gridnine.jasmine.server.standard"/>
+      <orderEntry type="module" module-name="com.gridnine.jtasks.common.core"/>
    </component>
 </module>

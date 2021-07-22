@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui xmlns="http://gridnine.com/jasmine/ui">
+    <actions-group id="standard.workspace-tools">
+        <action id="jtasks.core.workspace-tools.logout" action-handler="com.gridnine.jtasks.web.core.workspace.LogoutActionHandler"/>
+    </actions-group>
+</ui>

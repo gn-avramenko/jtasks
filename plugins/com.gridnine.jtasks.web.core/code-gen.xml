@@ -1,2 +1,3 @@
 <code-gen xmlns="http://gridnine.com/jasmine/codegen">
+    <generate source="jtasks-core-domain" targetPlugin="com.gridnine.jtasks.web.core" generator="web-domain"/>
 </code-gen>

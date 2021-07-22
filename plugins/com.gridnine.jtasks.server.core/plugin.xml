@@ -5,8 +5,9 @@
         <plugin-dependency plugin-id="com.gridnine.jasmine.common.standard"/>
         <plugin-dependency plugin-id="com.gridnine.jasmine.server.core"/>
         <plugin-dependency plugin-id="com.gridnine.jasmine.server.standard"/>
+        <plugin-dependency plugin-id="com.gridnine.jtasks.common.core"/>
     </dependencies>
-<!--    <extension point-id="activator">-->
-<!--        <parameter id="class" value="com.gridnine.jasmine.server.demo.activator.DemoActivator"/>-->
-<!--    </extension>-->
+    <extension point-id="activator">
+        <parameter id="class" value="com.gridnine.jtasks.server.core.activator.JTasksServerCoreActivator"/>
+    </extension>
 </plugin>

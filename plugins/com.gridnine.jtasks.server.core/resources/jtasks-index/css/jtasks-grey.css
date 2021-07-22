@@ -1,0 +1,18 @@
+.jasmine-logo {
+    font-size:200%;
+    background-color: #f3f3f3;
+    color: #0092DC;
+    text-align: center;
+    height:35px;
+    border: 1px solid #D3D3D3;
+}
+
+.jtasks-current-task-timer-widget{
+    padding-top: 3px;
+    background-color: #f3f3f3;
+    height:35px;
+}
+.jtasks-current-task-timer-text-element{
+    padding-top: 7px;
+    padding-left: 5px;
+}
