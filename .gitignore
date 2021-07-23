@@ -4,3 +4,4 @@
 lib/externals-test.txt
 lib/externals.txt
 data/*
+/temp/

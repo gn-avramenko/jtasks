@@ -2,7 +2,7 @@
  * Gridnine AB http://www.gridnine.com
  * Project: JTasks
  *****************************************************************/
-package com.gridnine.jtasks.server.core.storage
+package com.gridnine.jtasks.server.core.userAccount.storage
 
 import com.gridnine.jasmine.server.core.storage.IndexHandler
 import com.gridnine.jtasks.common.core.model.domain.UserAccount

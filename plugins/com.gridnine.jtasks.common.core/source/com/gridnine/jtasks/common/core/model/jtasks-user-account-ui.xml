@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui xmlns="http://gridnine.com/jasmine/ui">
+    <actions-group id="com.gridnine.jtasks.common.core.model.domain.UserAccount">
+        <action-ref id="standard.saveObject"/>
+        <action id="changePassword" action-handler="com.gridnine.jtasks.web.core.userAccount.ChangeUserAccountPasswordEditorButtonHandler"  display-handler-ref="edit-state-handler"/>
+        <group id="jtasks.core.user_account.additional">
+            <action-ref id="standard.showVersions"/>
+        </group>
+    </actions-group>
+    <actions-group id="com.gridnine.jtasks.common.core.model.domain.UserAccountIndex">
+        <action-ref id="deleteSelectedListItems"/>
+        <action id="createNewUserAccount" action-handler="com.gridnine.jtasks.web.core.userAccount.CreateNewUserAccountListButtonHandler"/>
+    </actions-group>
+    <grid-container id="com.gridnine.jtasks.common.core.model.ui.NewUserAccountEditor" columns-count="1">
+        <row>
+            <cell caption="name" id="name">
+                <text-box />
+            </cell>
+        </row>
+        <row>
+            <cell caption="login" id="login">
+                <text-box />
+            </cell>
+        </row>
+        <row>
+            <cell caption="password" id="password">
+                <password-box />
+            </cell>
+        </row>
+        <row>
+            <cell caption="retypePassword" id="retypePassword">
+                <password-box />
+            </cell>
+        </row>
+    </grid-container>
+    <grid-container id="com.gridnine.jtasks.common.core.model.ui.ChangePasswordEditor" columns-count="1">
+        <row>
+            <cell caption="newPassword" id="newPassword">
+                <password-box />
+            </cell>
+        </row>
+        <row>
+            <cell caption="retypePassword" id="retypePassword">
+                <password-box />
+            </cell>
+        </row>
+    </grid-container>
+    <grid-container id="com.gridnine.jtasks.common.core.model.ui.UserAccountEditor" columns-count="1">
+        <row>
+            <cell caption="login" id="login">
+                <text-box />
+            </cell>
+        </row>
+        <row>
+            <cell caption="name" id="name">
+                <text-box />
+            </cell>
+        </row>
+    </grid-container>
+</ui>

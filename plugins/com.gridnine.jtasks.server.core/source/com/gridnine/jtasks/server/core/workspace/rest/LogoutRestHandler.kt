@@ -2,7 +2,7 @@
  * Gridnine AB http://www.gridnine.com
  * Project: JTasks
  *****************************************************************/
-package com.gridnine.jtasks.server.core.rest
+package com.gridnine.jtasks.server.core.workspace.rest
 
 import com.gridnine.jasmine.server.core.rest.RestHandler
 import com.gridnine.jasmine.server.core.rest.RestOperationContext

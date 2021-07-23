@@ -3,7 +3,7 @@
  * Project: JTasks
  *****************************************************************/
 
-package com.gridnine.jtasks.server.core.storage
+package com.gridnine.jtasks.server.core.workspace.storage
 
 import com.gridnine.jasmine.common.core.model.BaseAsset
 import com.gridnine.jasmine.common.core.storage.Storage

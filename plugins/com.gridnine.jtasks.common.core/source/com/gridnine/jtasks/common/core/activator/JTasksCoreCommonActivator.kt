@@ -13,9 +13,11 @@ import java.util.*
 
 class JTasksCoreCommonActivator:IPluginActivator {
     override fun configure(config: Properties) {
-        DomainMetadataParser.updateDomainMetaRegistry(DomainMetaRegistry.get(), "com/gridnine/jtasks/common/core/model/jtasks-core-model-domain.xml", javaClass.classLoader)
-        RestMetadataParser.updateRestMetaRegistry(RestMetaRegistry.get(), "com/gridnine/jtasks/common/core/model/jtasks-core-model-rest.xml", javaClass.classLoader)
-        UiMetadataParser.updateUiMetaRegistry(UiMetaRegistry.get(), "com/gridnine/jtasks/common/core/model/jtasks-core-model-ui.xml", javaClass.classLoader)
+        DomainMetadataParser.updateDomainMetaRegistry(DomainMetaRegistry.get(), "com/gridnine/jtasks/common/core/model/jtasks-user-account-domain.xml", javaClass.classLoader)
+        RestMetadataParser.updateRestMetaRegistry(RestMetaRegistry.get(), "com/gridnine/jtasks/common/core/model/jtasks-core-other-rest.xml", javaClass.classLoader)
+        RestMetadataParser.updateRestMetaRegistry(RestMetaRegistry.get(), "com/gridnine/jtasks/common/core/model/jtasks-user-account-rest.xml", javaClass.classLoader)
+        UiMetadataParser.updateUiMetaRegistry(UiMetaRegistry.get(), "com/gridnine/jtasks/common/core/model/jtasks-core-other-ui.xml", javaClass.classLoader)
+        UiMetadataParser.updateUiMetaRegistry(UiMetaRegistry.get(), "com/gridnine/jtasks/common/core/model/jtasks-user-account-ui.xml", javaClass.classLoader)
         WebPluginsAssociations.registerAssociations()
     }
 }

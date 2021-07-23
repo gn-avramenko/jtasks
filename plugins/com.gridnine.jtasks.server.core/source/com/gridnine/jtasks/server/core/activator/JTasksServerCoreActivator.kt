@@ -13,13 +13,16 @@ import com.gridnine.jasmine.server.core.utils.DigestUtils
 import com.gridnine.jasmine.server.core.web.WebAppFilter
 import com.gridnine.jasmine.server.core.web.WebApplication
 import com.gridnine.jasmine.server.core.web.WebServerConfig
+import com.gridnine.jasmine.server.standard.helpers.ObjectEditorsRegistry
 import com.gridnine.jasmine.server.standard.model.WorkspaceProvider
 import com.gridnine.jasmine.server.standard.rest.ExceptionFilter
 import com.gridnine.jasmine.server.standard.rest.KotlinFileDevFilter
 import com.gridnine.jtasks.common.core.model.domain.UserAccount
 import com.gridnine.jtasks.common.core.model.domain.UserAccountIndex
-import com.gridnine.jtasks.server.core.storage.JTasksWorkspaceProvider
-import com.gridnine.jtasks.server.core.storage.UserAccountIndexHandler
+import com.gridnine.jtasks.server.core.workspace.storage.JTasksWorkspaceProvider
+import com.gridnine.jtasks.server.core.userAccount.storage.UserAccountIndexHandler
+import com.gridnine.jtasks.server.core.userAccount.storage.UserAccountStorageInterceptor
+import com.gridnine.jtasks.server.core.userAccount.ui.UserAccountEditorHandler
 import com.gridnine.jtasks.server.core.web.JTasksAuthFilter
 import java.io.File
 import java.util.*
@@ -44,6 +47,8 @@ class JTasksServerCoreActivator:IPluginActivator {
         WebServerConfig.get().globalFilters.add(WebAppFilter("exception-filter", ExceptionFilter::class))
         WebServerConfig.get().globalFilters.add(WebAppFilter("auth-filter", JTasksAuthFilter::class))
         StorageRegistry.get().register(UserAccountIndexHandler())
+        StorageRegistry.get().register(UserAccountStorageInterceptor())
+        ObjectEditorsRegistry.get().register(UserAccountEditorHandler())
         Environment.publish(WorkspaceProvider::class, JTasksWorkspaceProvider())
     }
     private fun addApp(context: String, res: String, file: String) {

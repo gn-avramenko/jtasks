@@ -10,6 +10,6 @@
     </document>
     <index id="com.gridnine.jtasks.common.core.model.domain.UserAccountIndex" document="com.gridnine.jtasks.common.core.model.domain.UserAccount">
         <property id="name" type="STRING"/>
-        <property id="login" type="STRING" x-cache-find-handler="com.gridnine.jtasks.server.core.storage.UserAccountLoginPropertyFindHandler"/>
+        <property id="login" type="STRING" x-cache-find-handler="com.gridnine.jtasks.server.core.userAccount.storage.UserAccountLoginPropertyFindHandler"/>
     </index>
 </domain>

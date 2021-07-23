@@ -3,7 +3,7 @@
  * Project: JTasks
  *****************************************************************/
 
-package com.gridnine.jtasks.server.core.storage
+package com.gridnine.jtasks.server.core.userAccount.storage
 
 import com.gridnine.jasmine.server.core.storage.cache.CacheConfiguration
 import com.gridnine.jtasks.common.core.model.domain.UserAccount

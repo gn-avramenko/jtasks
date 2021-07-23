@@ -19,9 +19,11 @@ import com.gridnine.jasmine.web.standard.StandardRestClient
 import com.gridnine.jasmine.web.standard.mainframe.ActionWrapper
 import com.gridnine.jasmine.web.standard.mainframe.MainFrame
 import com.gridnine.jasmine.web.standard.mainframe.WebActionsHandler
+import com.gridnine.jtasks.common.core.model.ui.UserAccountEditor
 import com.gridnine.jtasks.web.core.DomainReflectionUtilsJS
 import com.gridnine.jtasks.web.core.RestReflectionUtilsJS
 import com.gridnine.jtasks.web.core.UiReflectionUtilsJS
+import com.gridnine.jtasks.web.core.userAccount.UserAccountEditorHandler
 import com.gridnine.jtasks.web.core.workspace.JTasksMainFrame
 import kotlinx.browser.window
 
@@ -63,6 +65,7 @@ class WebJTasksCoreActivator : ActivatorJS {
         DomainReflectionUtilsJS.registerWebDomainClasses()
         RestReflectionUtilsJS.registerWebRestClasses()
         UiReflectionUtilsJS.registerWebUiClasses()
+        RegistryJS.get().register(UserAccountEditorHandler())
         console.log("jtasks core module activated")
     }
 

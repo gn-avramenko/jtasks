@@ -1,4 +1,2 @@
 <code-gen xmlns="http://gridnine.com/jasmine/codegen">
-    <generate source="jtasks-core-ui" targetPlugin="com.gridnine.jtasks.web.core" generator="web-ui"/>
-    <generate source="jtasks-core-rest" targetPlugin="com.gridnine.jtasks.web.core" generator="web-rest"/>
 </code-gen>
