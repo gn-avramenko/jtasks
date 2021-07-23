@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain xmlns="http://gridnine.com/jasmine/domain" >
+    <document id="com.gridnine.jtasks.common.core.model.domain.Project" x-cache-resolve="true">
+        <property id="key" type="STRING"/>
+        <property id="name" type="STRING"/>
+        <code-injection>
+            override fun toString():String = name?:"???"
+        </code-injection>
+    </document>
+    <index id="com.gridnine.jtasks.common.core.model.domain.ProjectIndex" document="com.gridnine.jtasks.common.core.model.domain.Project">
+        <property id="name" type="STRING"/>
+        <property id="key" type="STRING"/>
+    </index>
+</domain>

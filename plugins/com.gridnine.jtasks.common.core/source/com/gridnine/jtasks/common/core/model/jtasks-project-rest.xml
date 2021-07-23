@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rest xmlns="http://gridnine.com/jasmine/rest" id="jtasks">
+    <group id="project">
+        <operation id="create" handler="com.gridnine.jtasks.server.core.project.rest.CreateProjectRestHandler">
+            <request id="com.gridnine.jtasks.common.core.model.rest.CreateProjectRequest">
+                <property id="vm" type="ENTITY" class-name="com.gridnine.jtasks.common.core.model.ui.NewProjectEditorVM" lateinit="true"/>
+            </request>
+            <response id="com.gridnine.jtasks.common.core.model.rest.CreateProjectResponse">
+                <property id="vv" type="ENTITY" class-name="com.gridnine.jtasks.common.core.model.ui.NewProjectEditorVV"/>
+                <property id="objectUid" type="STRING"/>
+            </response>
+        </operation>
+    </group>
+</rest>
+
+

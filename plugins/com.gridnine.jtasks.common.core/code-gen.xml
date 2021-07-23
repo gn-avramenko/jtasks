@@ -4,8 +4,14 @@
     <source id="jtasks-user-account-rest" location="source/com/gridnine/jtasks/common/core/model/jtasks-user-account-rest.xml"/>
     <source id="jtasks-user-account-ui" location="source/com/gridnine/jtasks/common/core/model/jtasks-user-account-ui.xml"/>
     <source id="jtasks-core-other-ui" location="source/com/gridnine/jtasks/common/core/model/jtasks-core-other-ui.xml"/>
+    <source id="jtasks-project-ui" location="source/com/gridnine/jtasks/common/core/model/jtasks-project-ui.xml"/>
+    <source id="jtasks-project-rest" location="source/com/gridnine/jtasks/common/core/model/jtasks-project-rest.xml"/>
+    <source id="jtasks-project-domain" location="source/com/gridnine/jtasks/common/core/model/jtasks-project-domain.xml"/>
     <generate source="jtasks-user-account-domain" targetPlugin="com.gridnine.jtasks.common.core" generator="common-domain"/>
     <generate source="jtasks-core-other-rest" targetPlugin="com.gridnine.jtasks.common.core" generator="common-rest"/>
     <generate source="jtasks-user-account-ui" targetPlugin="com.gridnine.jtasks.common.core" generator="common-ui"/>
     <generate source="jtasks-user-account-rest" targetPlugin="com.gridnine.jtasks.common.core" generator="common-rest"/>
+    <generate source="jtasks-project-domain" targetPlugin="com.gridnine.jtasks.common.core" generator="common-domain"/>
+    <generate source="jtasks-project-ui" targetPlugin="com.gridnine.jtasks.common.core" generator="common-ui"/>
+    <generate source="jtasks-project-rest" targetPlugin="com.gridnine.jtasks.common.core" generator="common-rest"/>
 </code-gen>

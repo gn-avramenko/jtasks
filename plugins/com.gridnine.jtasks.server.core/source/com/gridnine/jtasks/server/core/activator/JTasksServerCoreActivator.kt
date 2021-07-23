@@ -19,6 +19,9 @@ import com.gridnine.jasmine.server.standard.rest.ExceptionFilter
 import com.gridnine.jasmine.server.standard.rest.KotlinFileDevFilter
 import com.gridnine.jtasks.common.core.model.domain.UserAccount
 import com.gridnine.jtasks.common.core.model.domain.UserAccountIndex
+import com.gridnine.jtasks.server.core.project.storage.ProjectIndexHandler
+import com.gridnine.jtasks.server.core.project.storage.ProjectStorageInterceptor
+import com.gridnine.jtasks.server.core.project.ui.ProjectEditorHandler
 import com.gridnine.jtasks.server.core.workspace.storage.JTasksWorkspaceProvider
 import com.gridnine.jtasks.server.core.userAccount.storage.UserAccountIndexHandler
 import com.gridnine.jtasks.server.core.userAccount.storage.UserAccountStorageInterceptor
@@ -49,6 +52,9 @@ class JTasksServerCoreActivator:IPluginActivator {
         StorageRegistry.get().register(UserAccountIndexHandler())
         StorageRegistry.get().register(UserAccountStorageInterceptor())
         ObjectEditorsRegistry.get().register(UserAccountEditorHandler())
+        StorageRegistry.get().register(ProjectIndexHandler())
+        StorageRegistry.get().register(ProjectStorageInterceptor())
+        ObjectEditorsRegistry.get().register(ProjectEditorHandler())
         Environment.publish(WorkspaceProvider::class, JTasksWorkspaceProvider())
     }
     private fun addApp(context: String, res: String, file: String) {

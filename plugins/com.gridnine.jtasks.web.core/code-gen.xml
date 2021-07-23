@@ -4,4 +4,7 @@
     <generate source="jtasks-core-other-rest" targetPlugin="com.gridnine.jtasks.web.core" generator="web-rest"/>
     <generate source="jtasks-user-account-ui" targetPlugin="com.gridnine.jtasks.web.core" generator="web-ui"/>
     <generate source="jtasks-user-account-rest" targetPlugin="com.gridnine.jtasks.web.core" generator="web-rest"/>
+    <generate source="jtasks-project-domain" targetPlugin="com.gridnine.jtasks.web.core" generator="web-domain"/>
+    <generate source="jtasks-project-rest" targetPlugin="com.gridnine.jtasks.web.core" generator="web-rest"/>
+    <generate source="jtasks-project-ui" targetPlugin="com.gridnine.jtasks.web.core" generator="web-ui"/>
 </code-gen>

@@ -39,6 +39,7 @@ class ChangeUserAccountPasswordEditorButtonHandler :ObjectEditorTool<WebEditor<U
                     } else{
                         it.close()
                         MainFrame.get().publishEvent(ObjectModificationEvent(UserAccountIndexJS.objectId, editor.objectUid))
+                        StandardUiUtils.showMessage("Пароль успешно изменен")
                     }
                 }
             }

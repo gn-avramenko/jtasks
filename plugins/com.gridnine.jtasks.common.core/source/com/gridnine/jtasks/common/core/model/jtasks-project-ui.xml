@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui xmlns="http://gridnine.com/jasmine/ui">
+    <actions-group id="com.gridnine.jtasks.common.core.model.domain.Project">
+        <action-ref id="standard.saveObject"/>
+        <group id="jtasks.core.project.additional">
+            <action-ref id="standard.showVersions"/>
+        </group>
+    </actions-group>
+    <actions-group id="com.gridnine.jtasks.common.core.model.domain.ProjectIndex">
+        <action-ref id="deleteSelectedListItems"/>
+        <action id="createNewProject" action-handler="com.gridnine.jtasks.web.core.project.CreateNewProjectListButtonHandler"/>
+    </actions-group>
+    <grid-container id="com.gridnine.jtasks.common.core.model.ui.NewProjectEditor" columns-count="1">
+        <row>
+            <cell caption="name" id="name">
+                <text-box />
+            </cell>
+        </row>
+        <row>
+            <cell caption="key" id="key">
+                <text-box />
+            </cell>
+        </row>
+    </grid-container>
+    <grid-container id="com.gridnine.jtasks.common.core.model.ui.ProjectEditor" columns-count="1">
+        <row>
+            <cell caption="key" id="key">
+                <text-box />
+            </cell>
+        </row>
+        <row>
+            <cell caption="name" id="name">
+                <text-box />
+            </cell>
+        </row>
+    </grid-container>
+</ui>
