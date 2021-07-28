@@ -32,7 +32,7 @@ class JTasksMainFrame(configure: MainFrameConfiguration.()->Unit):MainFrame(conf
             val res = JtasksRestClient.jtasks_timer_stopTaskTimer(StopTaskTimerRequestJS().also {
                 it.taskUid = taskUid
             })
-            widget.setState(state = res.taskStatus?:TimerStatusJS.STOPPED, taskUid = taskUid, taskKey = res.taskKey,
+            widget.setState(state = res.taskStatus?:TimerStatusJS.STOPPED, taskUid = res.taskUid, taskKey = res.taskKey,
                 taskTitle =   res.taskTitle, lastStartTime = res.lastStarted, commitedTime = res.committedTime)
         })
         centerContainer.setNorthRegion {

@@ -28,6 +28,7 @@ class StopTaskTimerRestHandler:RestHandler<StopTaskTimerRequest,StopTaskTimerRes
             it.taskKey =record.task!!.toString()
             it.taskTitle = record.taskName!!
             it.taskStatus = record.status
+            it.taskUid = record.task!!.uid
         }
     }
 }

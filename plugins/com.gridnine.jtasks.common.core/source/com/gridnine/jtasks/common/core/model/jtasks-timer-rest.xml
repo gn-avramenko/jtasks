@@ -11,6 +11,7 @@
                 <property id="lastStarted" type="LOCAL_DATE_TIME"/>
                 <property id="taskKey" type="STRING" lateinit="true"/>
                 <property id="taskTitle" type="STRING" lateinit="true"/>
+                <property id="taskUid" type="STRING" lateinit="true"/>
             </response>
         </operation>
         <operation id="getCurrentTimer" handler="com.gridnine.jtasks.server.core.timer.rest.GetCurrentTimerRestHandler">
