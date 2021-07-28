@@ -4,22 +4,23 @@
  *****************************************************************/
 package com.gridnine.jtasks.web.core.workspace
 
+import com.gridnine.jasmine.web.core.common.EnvironmentJS
 import com.gridnine.jasmine.web.core.ui.WebUiLibraryAdapter
 import com.gridnine.jasmine.web.core.ui.components.BaseWebNodeWrapper
 import com.gridnine.jasmine.web.core.ui.components.WebLinkButton
 import com.gridnine.jasmine.web.core.ui.components.WebTag
 import com.gridnine.jasmine.web.core.utils.MiscUtilsJS
+import com.gridnine.jasmine.web.standard.mainframe.MainFrame
+import com.gridnine.jtasks.common.core.model.domain.TimerStatusJS
 import kotlinx.browser.window
 import kotlin.js.Date
 
-enum class CurrentTaskTimerState{
-    STOPPED,
-    STARTED
-}
+
 
 class CurrentTaskTimerWidget(private val startCallback: suspend (String, CurrentTaskTimerWidget) ->Unit, private val  stopCallback: suspend (String, CurrentTaskTimerWidget) -> Unit):BaseWebNodeWrapper<WebTag>(){
 
-    private var state:CurrentTaskTimerState = CurrentTaskTimerState.STOPPED
+    private var taskUid:String? = null
+    private var state:TimerStatusJS = TimerStatusJS.STOPPED
     private var taskKey:String? = null
     private var taskTitle:String? = null
     private var commitedTime: Int? = null
@@ -58,12 +59,14 @@ class CurrentTaskTimerWidget(private val startCallback: suspend (String, Current
         stopButtonContainer.getChildren().addChild(stopButton)
         stopButtonContainer.setVisible(false)
         startButton.setHandler {
-            if(taskKey != null) {
-                startCallback.invoke(taskKey!!, this)
+            if(taskUid != null) {
+                startCallback.invoke(taskUid!!, this)
             }
         }
         stopButton.setHandler {
-            stopCallback.invoke(taskKey!!, this)
+            if(taskUid != null) {
+                stopCallback.invoke(taskUid!!, this)
+            }
         }
         commitedTimeDiv = WebUiLibraryAdapter.get().createTag("div", "currentTaskTimerCommitedTimeDiv")
         commitedTimeDiv.getStyle().setParameters("width" to "100%", "grid-row" to "1", "grid-column" to "2")
@@ -78,12 +81,12 @@ class CurrentTaskTimerWidget(private val startCallback: suspend (String, Current
 
     private fun updateUi(){
         when(state){
-            CurrentTaskTimerState.STARTED ->{
+            TimerStatusJS.STARTED ->{
                 startButtonContainer.setVisible(false)
                 stopButtonContainer.setVisible(true)
                 stopButton.setEnabled(true)
             }
-            CurrentTaskTimerState.STOPPED ->{
+            TimerStatusJS.STOPPED ->{
                 stopButtonContainer.setVisible(false)
                 startButtonContainer.setVisible(true)
                 startButton.setEnabled(MiscUtilsJS.isNotBlank(taskKey))
@@ -94,9 +97,9 @@ class CurrentTaskTimerWidget(private val startCallback: suspend (String, Current
             taskNameDiv.setText("")
             return
         }
-        var remainder = this.commitedTime?:0
+        var remainder = (this.commitedTime?:0)*1000
         if(this.lastStartTime != null){
-            remainder = (Date.now() - this.lastStartTime!!.getTime()).toInt()
+            remainder += (Date.now() - this.lastStartTime!!.getTime()).toInt()
         }
         val hours = remainder/3600000
         val hoursString = if(hours < 10) "0${hours}" else hours.toString()
@@ -110,12 +113,17 @@ class CurrentTaskTimerWidget(private val startCallback: suspend (String, Current
         taskNameDiv.setText("${taskKey}: ${taskTitle}")
     }
 
-    fun setState(state:CurrentTaskTimerState,  taskKey:String?, taskTitle:String?, commitedTime: Int?, lastStartTime: Date?){
+    fun setState(state:TimerStatusJS, taskUid:String?, taskKey:String?, taskTitle:String?, commitedTime: Int?, lastStartTime: Date?){
         this.state = state
         this.taskKey = taskKey
         this.taskTitle = taskTitle
         this.commitedTime = commitedTime
         this.lastStartTime = lastStartTime
+        this.taskUid = taskUid
         updateUi()
+    }
+
+    companion object{
+        fun get() = EnvironmentJS.getPublished(CurrentTaskTimerWidget::class)
     }
 }

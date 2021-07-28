@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui xmlns="http://gridnine.com/jasmine/ui">
+    <custom-value-widget id="com.gridnine.jtasks.web.core.task.WebHtmlContentViewer">
+        <view-model>
+            <property id="content" type="STRING"/>
+        </view-model>
+        <view-settings/>
+        <view-validation/>
+    </custom-value-widget>
+    <display-handler id="jtasks.core.task.displayHandler.reopen" class-name="com.gridnine.jtasks.web.core.task.ReopenTaskEditorActionDisplayHandler"/>
+    <display-handler id="jtasks.core.task.displayHandler.resolve" class-name="com.gridnine.jtasks.web.core.task.ResolveTaskEditorActionDisplayHandler"/>
+    <actions-group id="com.gridnine.jtasks.common.core.model.domain.Task">
+        <action-ref id="standard.saveObject"/>
+        <action id="jtasks.core.task.resolve" action-handler="com.gridnine.jtasks.web.core.task.ResolveTaskStatusEditorButtonHandler" display-handler-ref="jtasks.core.task.displayHandler.resolve"/>
+        <action id="jtasks.core.task.reopen" action-handler="com.gridnine.jtasks.web.core.task.ReopenTaskStatusEditorButtonHandler" display-handler-ref="jtasks.core.task.displayHandler.reopen"/>
+        <action id="jtasks.core.task.start" action-handler="com.gridnine.jtasks.web.core.task.StartTaskEditorButtonHandler"/>
+        <group id="jtasks.core.task.additional">
+            <action-ref id="standard.showVersions"/>
+        </group>
+    </actions-group>
+    <actions-group id="com.gridnine.jtasks.common.core.model.domain.TaskIndex">
+        <action id="createNewTask" action-handler="com.gridnine.jtasks.web.core.task.CreateNewTaskListButtonHandler"/>
+        <action id="startTask" action-handler="com.gridnine.jtasks.web.core.task.StartTaskListButtonHandler"/>
+    </actions-group>
+    <grid-container id="com.gridnine.jtasks.common.core.model.ui.NewTaskEditor">
+        <columns>
+            <column width="STANDARD"/>
+            <column width="CUSTOM" custom-width="400px"/>
+        </columns>
+        <row>
+            <cell caption="name" id="name" col-span="2">
+                <text-box />
+            </cell>
+        </row>
+        <row>
+            <cell caption="project" id="project">
+                <entity-select-box objectId="com.gridnine.jtasks.common.core.model.domain.Project"/>
+            </cell>
+        </row>
+        <row>
+            <cell id="assignee" caption="assignee">
+                <entity-select-box objectId="com.gridnine.jtasks.common.core.model.domain.UserAccount"/>
+            </cell>
+        </row>
+        <row>
+            <cell id="type" caption="type">
+                <enum-select-box enumId="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskType"/>
+            </cell>
+        </row>
+        <row>
+            <cell id="priority" caption="priority">
+                <enum-select-box enumId="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskPriority"/>
+            </cell>
+        </row>
+        <row>
+            <cell id="dueDate" caption="dueDate">
+                <date-box/>
+            </cell>
+        </row>
+        <row>
+            <cell id="description" caption="description" col-span="2">
+                <rich-text-editor height="300px"/>
+            </cell>
+        </row>
+    </grid-container>
+    <tile-space id="com.gridnine.jtasks.common.core.model.ui.TaskEditor">
+        <overview caption="overview">
+            <grid-container id="com.gridnine.jtasks.common.core.model.ui.TaskOverviewPanel" columns-count="3">
+                <row>
+                    <cell id="name" caption="name" col-span="3">
+                        <text-box/>
+                    </cell>
+                </row>
+                <row>
+                    <cell id="type" caption="type" col-span="1">
+                        <enum-select-box enumId="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskType"/>
+                    </cell>
+                    <cell id="created" caption="created" col-span="1">
+                        <date-time-box/>
+                    </cell>
+                    <cell id="assignee" caption="assignee"  col-span="1">
+                        <entity-select-box objectId="com.gridnine.jtasks.common.core.model.domain.UserAccount"/>
+                    </cell>
+
+                </row>
+                <row>
+                    <cell id="status" caption="status" col-span="1">
+                        <enum-select-box enumId="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskStatus"/>
+                    </cell>
+                    <cell id="resolved" caption="resolved" col-span="1">
+                        <date-time-box/>
+                    </cell>
+                    <cell id="reporter" caption="reporter"  col-span="1">
+                        <entity-select-box objectId="com.gridnine.jtasks.common.core.model.domain.UserAccount"/>
+                    </cell>
+                </row>
+                <row>
+                    <cell id="priority" caption="priority" col-span="1">
+                        <enum-select-box enumId="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskPriority"/>
+                    </cell>
+                    <cell id="dueDate" caption="dueDate" col-span="1">
+                        <date-box/>
+                    </cell>
+                </row>
+                <row>
+                    <cell id="description" caption="description" col-span="3">
+                        <custom-value-widget ref="com.gridnine.jtasks.web.core.task.WebHtmlContentViewer"/>
+                    </cell>
+                </row>
+            </grid-container>
+        </overview>
+        <tile id="details" caption="details">
+            <full-view>
+                <grid-container id="com.gridnine.jtasks.common.core.model.ui.TaskDetailsPanel">
+                    <columns>
+                        <column width="STANDARD"/>
+                        <column width="STANDARD"/>
+                        <column width="REMAINING"/>
+                    </columns>
+                    <row>
+                        <cell id="key" caption="key" col-span="1">
+                            <text-box not-editable="true"/>
+                        </cell>
+                        <cell id="name" caption="name" col-span="3">
+                            <text-box/>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell id="type" caption="type" col-span="1">
+                            <enum-select-box enumId="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskType"/>
+                        </cell>
+                        <cell id="assignee" caption="assignee"  col-span="1">
+                            <entity-select-box objectId="com.gridnine.jtasks.common.core.model.domain.UserAccount"/>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell id="priority" caption="priority" col-span="1">
+                            <enum-select-box enumId="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskPriority"/>
+                        </cell>
+                        <cell id="dueDate" caption="dueDate" col-span="1">
+                            <date-box/>
+                        </cell>
+                    </row>
+                    <row>
+                        <cell id="description" col-span="3" caption="description">
+                            <rich-text-editor height="300px"/>
+                        </cell>
+                    </row>
+                </grid-container>
+            </full-view>
+        </tile>
+    </tile-space>
+</ui>

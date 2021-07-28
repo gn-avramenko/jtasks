@@ -29,6 +29,7 @@ jasmine {
         plugin("com.gridnine.jasmine.server.core.test")
         plugin("com.gridnine.jasmine.common.standard")
         plugin("com.gridnine.jasmine.server.standard")
+        plugin("com.gridnine.jasmine.server.standard.test")
         plugin("com.gridnine.jasmine.common.reports")
         plugin("com.gridnine.jasmine.server.reports")
         plugin("com.gridnine.jasmine.web.core")

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rest xmlns="http://gridnine.com/jasmine/rest" id="jtasks">
+    <group id="task">
+        <operation id="create" handler="com.gridnine.jtasks.server.core.task.rest.CreateTaskRestHandler">
+            <request id="com.gridnine.jtasks.common.core.model.rest.CreateTaskRequest">
+                <property id="vm" type="ENTITY" class-name="com.gridnine.jtasks.common.core.model.ui.NewTaskEditorVM" lateinit="true"/>
+            </request>
+            <response id="com.gridnine.jtasks.common.core.model.rest.CreateTaskResponse">
+                <property id="vv" type="ENTITY" class-name="com.gridnine.jtasks.common.core.model.ui.NewTaskEditorVV"/>
+                <property id="objectUid" type="STRING"/>
+            </response>
+        </operation>
+        <operation id="changeStatus" handler="com.gridnine.jtasks.server.core.task.rest.ChangeTaskStatusRestHandler">
+            <request id="com.gridnine.jtasks.common.core.model.rest.ChangeTaskStatusRequest">
+                <property id="taskUid" type="STRING" lateinit="true"/>
+                <property id="newStatus" type="ENUM" class-name="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskStatus"/>
+            </request>
+            <response id="com.gridnine.jtasks.common.core.model.rest.ChangeTaskStatusResponse"/>
+        </operation>
+        <operation id="startTaskTimer" handler="com.gridnine.jtasks.server.core.task.rest.StartTaskTimerRestHandler">
+            <request id="com.gridnine.jtasks.common.core.model.rest.StartTaskTimerRequest">
+                <property id="taskUid" type="STRING" lateinit="true"/>
+            </request>
+            <response id="com.gridnine.jtasks.common.core.model.rest.StartTaskTimerResponse">
+                <property id="committedTime" type="INT" non-nullable="true"/>
+                <property id="lastStarted" type="LOCAL_DATE_TIME"/>
+                <property id="taskKey" type="STRING" lateinit="true"/>
+                <property id="taskTitle" type="STRING" lateinit="true"/>
+            </response>
+        </operation>
+    </group>
+</rest>
+
+

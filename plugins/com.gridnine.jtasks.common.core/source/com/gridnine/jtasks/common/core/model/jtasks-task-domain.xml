@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain xmlns="http://gridnine.com/jasmine/domain" >
+    <enum id="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskStatus">
+        <enum-item id="NEW"/>
+        <enum-item id="RESOLVED"/>
+        <enum-item id="REOPENED"/>
+    </enum>
+    <enum id="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskType">
+        <enum-item id="BUG"/>
+        <enum-item id="NEW_FEATURE"/>
+        <enum-item id="IMPROVEMENT"/>
+    </enum>
+    <enum id="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskPriority">
+        <enum-item id="BLOCKER"/>
+        <enum-item id="CRITICAL"/>
+        <enum-item id="MAJOR"/>
+        <enum-item id="MINOR"/>
+    </enum>
+    <nested-document id="com.gridnine.jtasks.common.core.model.domain.TaskComment">
+        <property id="author" type="ENTITY_REFERENCE" class-name="com.gridnine.jtasks.common.core.model.domain.UserAccount"/>
+        <property id="created" type="LOCAL_DATE_TIME"/>
+        <property id="content" type="STRING"/>
+    </nested-document>
+    <document id="com.gridnine.jtasks.common.core.model.domain.Task">
+        <property id="key" type="STRING"/>
+        <property id="name" type="STRING"/>
+        <property id="project" type="ENTITY_REFERENCE" class-name="com.gridnine.jtasks.common.core.model.domain.Project"/>
+        <property id="type" type="ENUM" class-name="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskType"/>
+        <property id="status" type="ENUM" class-name="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskStatus"/>
+        <property id="assignee" type="ENTITY_REFERENCE" class-name="com.gridnine.jtasks.common.core.model.domain.UserAccount"/>
+        <property id="reporter" type="ENTITY_REFERENCE" class-name="com.gridnine.jtasks.common.core.model.domain.UserAccount"/>
+        <property id="priority" type="ENUM" class-name="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskPriority"/>
+        <property id="created" type="LOCAL_DATE_TIME"/>
+        <property id="resolved" type="LOCAL_DATE_TIME"/>
+        <property id="dueDate" type="LOCAL_DATE"/>
+        <property id="description" type="STRING"/>
+        <collection id="comments" element-type="NESTED_DOCUMENT" element-class-name="com.gridnine.jtasks.common.core.model.domain.TaskComment"/>
+        <code-injection>
+            override fun toString():String = key?:"???"
+        </code-injection>
+    </document>
+    <index id="com.gridnine.jtasks.common.core.model.domain.TaskIndex" document="com.gridnine.jtasks.common.core.model.domain.Task">
+        <property id="key" type="STRING"/>
+        <property id="name" type="STRING"/>
+        <property id="project" type="ENTITY_REFERENCE" class-name="com.gridnine.jtasks.common.core.model.domain.Project"/>
+        <property id="type" type="ENUM" class-name="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskType"/>
+        <property id="status" type="ENUM" class-name="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskStatus"/>
+        <property id="assignee" type="ENTITY_REFERENCE" class-name="com.gridnine.jtasks.common.core.model.domain.UserAccount"/>
+        <property id="reporter" type="ENTITY_REFERENCE" class-name="com.gridnine.jtasks.common.core.model.domain.UserAccount"/>
+        <property id="priority" type="ENUM" class-name="com.gridnine.jasmine.jtasks.common.core.model.domain.TaskPriority"/>
+        <property id="created" type="LOCAL_DATE_TIME"/>
+        <property id="resolved" type="LOCAL_DATE_TIME"/>
+        <property id="dueDate" type="LOCAL_DATE"/>
+    </index>
+</domain>

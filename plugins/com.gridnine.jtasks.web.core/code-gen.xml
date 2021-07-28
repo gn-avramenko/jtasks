@@ -7,4 +7,10 @@
     <generate source="jtasks-project-domain" targetPlugin="com.gridnine.jtasks.web.core" generator="web-domain"/>
     <generate source="jtasks-project-rest" targetPlugin="com.gridnine.jtasks.web.core" generator="web-rest"/>
     <generate source="jtasks-project-ui" targetPlugin="com.gridnine.jtasks.web.core" generator="web-ui"/>
+    <generate source="jtasks-task-domain" targetPlugin="com.gridnine.jtasks.web.core" generator="web-domain"/>
+    <generate source="jtasks-task-rest" targetPlugin="com.gridnine.jtasks.web.core" generator="web-rest"/>
+    <generate source="jtasks-task-ui" targetPlugin="com.gridnine.jtasks.web.core" generator="web-ui"/>
+    <generate source="jtasks-timer-domain" targetPlugin="com.gridnine.jtasks.web.core" generator="web-domain"/>
+    <generate source="jtasks-timer-rest" targetPlugin="com.gridnine.jtasks.web.core" generator="web-rest"/>
+    <generate source="jtasks-timer-ui" targetPlugin="com.gridnine.jtasks.web.core" generator="web-ui"/>
 </code-gen>

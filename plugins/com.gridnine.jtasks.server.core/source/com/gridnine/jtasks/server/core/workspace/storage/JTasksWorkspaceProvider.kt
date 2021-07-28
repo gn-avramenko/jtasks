@@ -11,6 +11,7 @@ import com.gridnine.jasmine.common.core.utils.AuthUtils
 import com.gridnine.jasmine.common.standard.model.domain.*
 import com.gridnine.jasmine.server.standard.model.WorkspaceProvider
 import com.gridnine.jtasks.common.core.model.domain.ProjectIndex
+import com.gridnine.jtasks.common.core.model.domain.TaskIndex
 import com.gridnine.jtasks.common.core.model.domain.UserAccountIndex
 
 class JTasksWorkspaceProvider : WorkspaceProvider {
@@ -57,6 +58,20 @@ class JTasksWorkspaceProvider : WorkspaceProvider {
             order.field = ProjectIndex.keyProperty.name
             item.listId = ProjectIndex::class.qualifiedName
             item.displayName = "Все проекты"
+            group.items.add(item)
+            result.groups.add(group)
+        }
+        run {
+            val group = WorkspaceGroup()
+            group.displayName = "Задачи"
+            val item = ListWorkspaceItem()
+            item.columns.add(TaskIndex.keyProperty.name)
+            item.columns.add(TaskIndex.nameProperty.name)
+            val order = SortOrder()
+            order.orderType = SortOrderType.ASC
+            order.field = TaskIndex.keyProperty.name
+            item.listId = TaskIndex::class.qualifiedName
+            item.displayName = "Все задачи"
             group.items.add(item)
             result.groups.add(group)
         }

@@ -17,11 +17,15 @@ import com.gridnine.jasmine.server.standard.helpers.ObjectEditorsRegistry
 import com.gridnine.jasmine.server.standard.model.WorkspaceProvider
 import com.gridnine.jasmine.server.standard.rest.ExceptionFilter
 import com.gridnine.jasmine.server.standard.rest.KotlinFileDevFilter
+import com.gridnine.jtasks.common.core.model.domain.Project
 import com.gridnine.jtasks.common.core.model.domain.UserAccount
 import com.gridnine.jtasks.common.core.model.domain.UserAccountIndex
 import com.gridnine.jtasks.server.core.project.storage.ProjectIndexHandler
 import com.gridnine.jtasks.server.core.project.storage.ProjectStorageInterceptor
 import com.gridnine.jtasks.server.core.project.ui.ProjectEditorHandler
+import com.gridnine.jtasks.server.core.task.storage.TaskIndexHandler
+import com.gridnine.jtasks.server.core.task.ui.TaskEditorHandler
+import com.gridnine.jtasks.server.core.timer.ui.TimerRecordEditorHandler
 import com.gridnine.jtasks.server.core.workspace.storage.JTasksWorkspaceProvider
 import com.gridnine.jtasks.server.core.userAccount.storage.UserAccountIndexHandler
 import com.gridnine.jtasks.server.core.userAccount.storage.UserAccountStorageInterceptor
@@ -46,6 +50,7 @@ class JTasksServerCoreActivator:IPluginActivator {
         addApp("/easyui-adapter","easyui-adapter","lib/easyui-adapter.war")
         addApp("/jquery-lib","jquery-lib","lib/jquery-lib.war")
         addApp("/jtasks-core","jtasks-core","lib/jtasks-core.war")
+        addApp("/easyui-rich-text-editor-lib","easyui-rich-text-editor-lib","lib/easyui-rich-text-editor-lib.war")
         WebServerConfig.get().globalFilters.add(WebAppFilter("kotlin-dev-filter", KotlinFileDevFilter::class))
         WebServerConfig.get().globalFilters.add(WebAppFilter("exception-filter", ExceptionFilter::class))
         WebServerConfig.get().globalFilters.add(WebAppFilter("auth-filter", JTasksAuthFilter::class))
@@ -55,6 +60,9 @@ class JTasksServerCoreActivator:IPluginActivator {
         StorageRegistry.get().register(ProjectIndexHandler())
         StorageRegistry.get().register(ProjectStorageInterceptor())
         ObjectEditorsRegistry.get().register(ProjectEditorHandler())
+        ObjectEditorsRegistry.get().register(TaskEditorHandler())
+        ObjectEditorsRegistry.get().register(TimerRecordEditorHandler())
+        StorageRegistry.get().register(TaskIndexHandler())
         Environment.publish(WorkspaceProvider::class, JTasksWorkspaceProvider())
     }
     private fun addApp(context: String, res: String, file: String) {
@@ -79,5 +87,10 @@ class JTasksServerCoreActivator:IPluginActivator {
         account.passwordDigest = DigestUtils.getMd5Hash("admin")
         account.name= "Администратор"
         Storage.get().saveDocument(account, true, "setup")
+        val project = Project()
+        project.key = "XTR"
+        project.name = "Xtrip"
+        Storage.get().saveDocument(project)
+
     }
 }

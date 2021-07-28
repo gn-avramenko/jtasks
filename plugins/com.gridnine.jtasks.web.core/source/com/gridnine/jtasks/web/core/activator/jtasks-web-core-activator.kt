@@ -24,6 +24,8 @@ import com.gridnine.jtasks.web.core.DomainReflectionUtilsJS
 import com.gridnine.jtasks.web.core.RestReflectionUtilsJS
 import com.gridnine.jtasks.web.core.UiReflectionUtilsJS
 import com.gridnine.jtasks.web.core.project.ProjectEditorHandler
+import com.gridnine.jtasks.web.core.task.TaskEditorHandler
+import com.gridnine.jtasks.web.core.timer.TimerRecordHandler
 import com.gridnine.jtasks.web.core.userAccount.UserAccountEditorHandler
 import com.gridnine.jtasks.web.core.workspace.JTasksMainFrame
 import kotlinx.browser.window
@@ -68,6 +70,8 @@ class WebJTasksCoreActivator : ActivatorJS {
         UiReflectionUtilsJS.registerWebUiClasses()
         RegistryJS.get().register(UserAccountEditorHandler())
         RegistryJS.get().register(ProjectEditorHandler())
+        RegistryJS.get().register(TaskEditorHandler())
+        RegistryJS.get().register(TimerRecordHandler())
         console.log("jtasks core module activated")
     }
 

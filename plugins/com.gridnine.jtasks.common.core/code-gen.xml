@@ -7,6 +7,12 @@
     <source id="jtasks-project-ui" location="source/com/gridnine/jtasks/common/core/model/jtasks-project-ui.xml"/>
     <source id="jtasks-project-rest" location="source/com/gridnine/jtasks/common/core/model/jtasks-project-rest.xml"/>
     <source id="jtasks-project-domain" location="source/com/gridnine/jtasks/common/core/model/jtasks-project-domain.xml"/>
+    <source id="jtasks-task-domain" location="source/com/gridnine/jtasks/common/core/model/jtasks-task-domain.xml"/>
+    <source id="jtasks-task-ui" location="source/com/gridnine/jtasks/common/core/model/jtasks-task-ui.xml"/>
+    <source id="jtasks-task-rest" location="source/com/gridnine/jtasks/common/core/model/jtasks-task-rest.xml"/>
+    <source id="jtasks-timer-domain" location="source/com/gridnine/jtasks/common/core/model/jtasks-timer-domain.xml"/>
+    <source id="jtasks-timer-ui" location="source/com/gridnine/jtasks/common/core/model/jtasks-timer-ui.xml"/>
+    <source id="jtasks-timer-rest" location="source/com/gridnine/jtasks/common/core/model/jtasks-timer-rest.xml"/>
     <generate source="jtasks-user-account-domain" targetPlugin="com.gridnine.jtasks.common.core" generator="common-domain"/>
     <generate source="jtasks-core-other-rest" targetPlugin="com.gridnine.jtasks.common.core" generator="common-rest"/>
     <generate source="jtasks-user-account-ui" targetPlugin="com.gridnine.jtasks.common.core" generator="common-ui"/>
@@ -14,4 +20,10 @@
     <generate source="jtasks-project-domain" targetPlugin="com.gridnine.jtasks.common.core" generator="common-domain"/>
     <generate source="jtasks-project-ui" targetPlugin="com.gridnine.jtasks.common.core" generator="common-ui"/>
     <generate source="jtasks-project-rest" targetPlugin="com.gridnine.jtasks.common.core" generator="common-rest"/>
+    <generate source="jtasks-task-domain" targetPlugin="com.gridnine.jtasks.common.core" generator="common-domain"/>
+    <generate source="jtasks-task-ui" targetPlugin="com.gridnine.jtasks.common.core" generator="common-ui"/>
+    <generate source="jtasks-task-rest" targetPlugin="com.gridnine.jtasks.common.core" generator="common-rest"/>
+    <generate source="jtasks-timer-domain" targetPlugin="com.gridnine.jtasks.common.core" generator="common-domain"/>
+    <generate source="jtasks-timer-ui" targetPlugin="com.gridnine.jtasks.common.core" generator="common-ui"/>
+    <generate source="jtasks-timer-rest" targetPlugin="com.gridnine.jtasks.common.core" generator="common-rest"/>
 </code-gen>

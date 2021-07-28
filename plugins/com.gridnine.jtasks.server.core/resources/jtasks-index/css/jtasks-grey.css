@@ -16,3 +16,8 @@
     padding-top: 7px;
     padding-left: 5px;
 }
+
+.jtasks-html-viewer{
+    border: 1px solid #D3D3D3;
+    border-radius: 5px 5px 5px 5px;
+}

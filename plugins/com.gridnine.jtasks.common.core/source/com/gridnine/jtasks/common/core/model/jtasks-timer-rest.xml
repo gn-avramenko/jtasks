@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rest xmlns="http://gridnine.com/jasmine/rest" id="jtasks">
+    <group id="timer">
+        <operation id="stopTaskTimer" handler="com.gridnine.jtasks.server.core.timer.rest.StopTaskTimerRestHandler">
+            <request id="com.gridnine.jtasks.common.core.model.rest.StopTaskTimerRequest">
+                <property id="taskUid" type="STRING" lateinit="true"/>
+            </request>
+            <response id="com.gridnine.jtasks.common.core.model.rest.StopTaskTimerResponse">
+                <property id="taskStatus" type="ENUM" class-name="com.gridnine.jtasks.common.core.model.domain.TimerStatus"/>
+                <property id="committedTime" type="INT" non-nullable="true"/>
+                <property id="lastStarted" type="LOCAL_DATE_TIME"/>
+                <property id="taskKey" type="STRING" lateinit="true"/>
+                <property id="taskTitle" type="STRING" lateinit="true"/>
+            </response>
+        </operation>
+        <operation id="getCurrentTimer" handler="com.gridnine.jtasks.server.core.timer.rest.GetCurrentTimerRestHandler">
+            <request id="com.gridnine.jtasks.common.core.model.rest.GetCurrentTimerRequest"/>
+            <response id="com.gridnine.jtasks.common.core.model.rest.GetCurrentTimerResponse">
+                <property id="taskUid" type="STRING"/>
+                <property id="taskStatus" type="ENUM" class-name="com.gridnine.jtasks.common.core.model.domain.TimerStatus"/>
+                <property id="committedTime" type="INT"/>
+                <property id="lastStarted" type="LOCAL_DATE_TIME"/>
+                <property id="taskKey" type="STRING"/>
+                <property id="taskTitle" type="STRING"/>
+            </response>
+        </operation>
+        <operation id="startTimerRecord" handler="com.gridnine.jtasks.server.core.timer.rest.StartTimerRecordRestHandler">
+            <request id="com.gridnine.jtasks.common.core.model.rest.StartTimerRecordRequest">
+                <property id="timerUid" type="STRING" lateinit="true"/>
+            </request>
+            <response id="com.gridnine.jtasks.common.core.model.rest.StartTimerRecordResponse">
+                <property id="taskUid" type="STRING" lateinit="true"/>
+                <property id="committedTime" type="INT" non-nullable="true"/>
+                <property id="lastStarted" type="LOCAL_DATE_TIME"/>
+                <property id="taskKey" type="STRING" lateinit="true"/>
+                <property id="taskTitle" type="STRING" lateinit="true"/>
+            </response>
+        </operation>
+    </group>
+</rest>
+
+

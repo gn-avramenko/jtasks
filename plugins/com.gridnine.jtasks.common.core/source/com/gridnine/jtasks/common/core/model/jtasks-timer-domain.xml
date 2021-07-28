@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain xmlns="http://gridnine.com/jasmine/domain" >
+    <enum id="com.gridnine.jtasks.common.core.model.domain.TimerStatus">
+        <enum-item id="STARTED"/>
+        <enum-item id="STOPPED"/>
+    </enum>
+    <asset id="com.gridnine.jtasks.common.core.model.domain.TimerRecord">
+        <property id="date" type="LOCAL_DATE"/>
+        <property id="task" type="ENTITY_REFERENCE" class-name="com.gridnine.jtasks.common.core.model.domain.Task"/>
+        <property id="taskName" type="STRING"/>
+        <property id="status" type="ENUM" class-name="com.gridnine.jtasks.common.core.model.domain.TimerStatus"/>
+        <property id="committedTime" type="INT"/>
+        <property id="lastStarted" type="LOCAL_DATE_TIME"/>
+        <property id="assignee" type="ENTITY_REFERENCE" class-name="com.gridnine.jtasks.common.core.model.domain.UserAccount"/>
+    </asset>
+</domain>

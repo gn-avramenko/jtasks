@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui xmlns="http://gridnine.com/jasmine/ui">
+    <actions-group id="com.gridnine.jtasks.common.core.model.domain.TimerRecord">
+        <action-ref id="standard.saveObject"/>
+        <action id="startTimer" action-handler="com.gridnine.jtasks.web.core.timer.StartTimerRecordEditorButtonHandler"/>
+    </actions-group>
+    <actions-group id="com.gridnine.jtasks.common.core.model.domain.TimerRecord-list">
+        <action-ref id="deleteSelectedListItems"/>
+        <action id="startTimerList" action-handler="com.gridnine.jtasks.web.core.timer.StartTimerRecordListButtonHandler"/>
+    </actions-group>
+    <grid-container id="com.gridnine.jtasks.common.core.model.domain.TimerRecordEditor">
+        <row>
+            <cell id="task" caption="task">
+                <entity-select-box objectId="com.gridnine.jtasks.common.core.model.domain.Task"/>
+            </cell>
+        </row>
+        <row>
+            <cell id="date"  caption="date">
+                <date-box not-editable="true"/>
+            </cell>
+        </row>
+        <row>
+            <cell id="status"  caption="status">
+                <enum-select-box enumId="com.gridnine.jtasks.common.core.model.domain.TimerStatus" not-editable="true"/>
+            </cell>
+        </row>
+        <row>
+            <cell id="committedTime"  caption="committedTime">
+                <text-box/>
+            </cell>
+        </row>
+        <row>
+            <cell id="lastStarted"  caption="lastStarted">
+                <date-time-box not-editable="true"/>
+            </cell>
+        </row>
+    </grid-container>
+</ui>
