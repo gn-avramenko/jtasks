@@ -46,7 +46,6 @@ class JTasksServerCoreActivator:IPluginActivator {
         addApp("/jasmine-standard","jasmine-standard","lib/jasmine-standard.war")
         addApp("/jasmine-reports","jasmine-reports","lib/jasmine-reports.war")
         addApp("/easyui-lib","easyui-lib","lib/easyui-lib.war")
-        addApp("/select2-lib","select2-lib","lib/select2-lib.war")
         addApp("/easyui-adapter","easyui-adapter","lib/easyui-adapter.war")
         addApp("/jquery-lib","jquery-lib","lib/jquery-lib.war")
         addApp("/jtasks-core","jtasks-core","lib/jtasks-core.war")

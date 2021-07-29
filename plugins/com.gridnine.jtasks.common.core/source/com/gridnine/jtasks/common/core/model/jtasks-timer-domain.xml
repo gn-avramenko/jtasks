@@ -7,6 +7,7 @@
     <asset id="com.gridnine.jtasks.common.core.model.domain.TimerRecord">
         <property id="date" type="LOCAL_DATE"/>
         <property id="task" type="ENTITY_REFERENCE" class-name="com.gridnine.jtasks.common.core.model.domain.Task"/>
+        <property id="project" type="ENTITY_REFERENCE" class-name="com.gridnine.jtasks.common.core.model.domain.Project"/>
         <property id="taskName" type="STRING"/>
         <property id="status" type="ENUM" class-name="com.gridnine.jtasks.common.core.model.domain.TimerStatus"/>
         <property id="committedTime" type="INT"/>

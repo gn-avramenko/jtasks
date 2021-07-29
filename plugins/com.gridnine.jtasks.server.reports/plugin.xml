@@ -10,7 +10,7 @@
         <plugin-dependency plugin-id="com.gridnine.jtasks.common.core"/>
         <plugin-dependency plugin-id="com.gridnine.jtasks.server.core"/>
     </dependencies>
-<!--    <extension point-id="activator">-->
-<!--        <parameter id="class" value="com.gridnine.jasmine.server.demo.activator.DemoActivator"/>-->
-<!--    </extension>-->
+    <extension point-id="activator">
+        <parameter id="class" value="com.gridnine.jtasks.server.reports.activator.JTasksReportsActivator"/>
+    </extension>
 </plugin>

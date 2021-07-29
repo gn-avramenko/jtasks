@@ -50,6 +50,7 @@ class StartTaskTimerRestHandler:RestHandler<StartTaskTimerRequest, StartTaskTime
                     val task = Storage.get().loadDocument(Task::class, request.taskUid)!!
                     it.task = EntityUtils.toReference(task)
                     it.taskName = task.name
+                    it.project = task.project
                 }
             }
         }

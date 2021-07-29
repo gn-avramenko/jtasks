@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<misc-objects xmlns="http://gridnine.com/jasmine/misc">
+    <enum id="com.gridnine.jtasks.server.reports.model.JTasksReportType">
+        <enum-item id="BASIC_COMMITTED_TIME_REPORT"/>
+    </enum>
+    <enum id="com.gridnine.jtasks.server.reports.model.JTasksReportParametersIds">
+        <enum-item id="PROJECTS"/>
+    </enum>
+</misc-objects>
