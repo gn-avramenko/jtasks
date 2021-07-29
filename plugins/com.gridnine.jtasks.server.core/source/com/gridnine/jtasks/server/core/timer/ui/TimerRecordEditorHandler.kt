@@ -50,7 +50,7 @@ class TimerRecordEditorHandler :
             val hours = remainder / 3600
             remainder -= hours * 3600
             val minutes = remainder / 60
-            remainder -= minutes * 3600
+            remainder -= minutes * 60
             vmEntity.committedTime = "${formatTimePart(hours)}:${formatTimePart(minutes)}:${formatTimePart(remainder)}"
         }
     }
