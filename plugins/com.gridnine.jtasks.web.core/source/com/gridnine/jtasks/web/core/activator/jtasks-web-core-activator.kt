@@ -54,6 +54,12 @@ fun main() {
 
             val centerContent = WebUiLibraryAdapter.get().createTabsContainer {
                 fit = true
+                tools.add(WebTabsContainerTool().also {
+                    it.displayName = "Выход"
+                    it.handler = {
+                        console.log("Выход")
+                    }
+                })
             }
             leftContent.setSelectListener {
                 centerContent.addTab {
