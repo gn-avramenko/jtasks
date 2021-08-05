@@ -28,5 +28,6 @@
     <orderEntry type="library" name="web_js" level="project" />
     <orderEntry type="module" module-name="com.gridnine.jasmine.web.core" />
     <orderEntry type="module" module-name="com.gridnine.jasmine.web.standard" />
+    <orderEntry type="module" module-name="com.gridnine.jasmine.web.antd" />
   </component>
 </module>

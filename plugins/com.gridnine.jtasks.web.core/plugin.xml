@@ -4,5 +4,6 @@
     <dependencies>
         <plugin-dependency plugin-id="com.gridnine.jasmine.web.core"/>
         <plugin-dependency plugin-id="com.gridnine.jasmine.web.standard"/>
+        <plugin-dependency plugin-id="com.gridnine.jasmine.web.antd"/>
     </dependencies>
 </plugin>

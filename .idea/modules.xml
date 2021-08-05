@@ -14,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.reports.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.reports.iml" group="jtasks" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.standard.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.standard.iml" group="jtasks" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.standard.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.server.standard.test.iml" group="jtasks" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.antd.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.antd.iml" group="jtasks" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.core.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.core.iml" group="jtasks" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.core.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.core.test.iml" group="jtasks" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.easyui.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.easyui.iml" group="jtasks" />

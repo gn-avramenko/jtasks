@@ -50,6 +50,9 @@ class JTasksServerCoreActivator:IPluginActivator {
         addApp("/jquery-lib","jquery-lib","lib/jquery-lib.war")
         addApp("/jtasks-core","jtasks-core","lib/jtasks-core.war")
         addApp("/easyui-rich-text-editor-lib","easyui-rich-text-editor-lib","lib/easyui-rich-text-editor-lib.war")
+        addApp("/antd-lib","antd-lib","lib/antd-lib.war")
+        addApp("/jasmine-antd","jasmine-antd","lib/jasmine-antd.war")
+
         WebServerConfig.get().globalFilters.add(WebAppFilter("kotlin-dev-filter", KotlinFileDevFilter::class))
         WebServerConfig.get().globalFilters.add(WebAppFilter("exception-filter", ExceptionFilter::class))
         WebServerConfig.get().globalFilters.add(WebAppFilter("auth-filter", JTasksAuthFilter::class))

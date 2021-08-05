@@ -37,6 +37,7 @@ jasmine {
         plugin("com.gridnine.jasmine.web.standard")
         plugin("com.gridnine.jasmine.web.reports")
         plugin("com.gridnine.jasmine.web.easyui")
+        plugin("com.gridnine.jasmine.web.antd")
     }
     plugins("plugins"){
         plugin("com.gridnine.jtasks.common.core")
