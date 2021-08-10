@@ -6,6 +6,7 @@ package com.gridnine.jtasks.web.core.activator
 
 import com.gridnine.jasmine.common.core.meta.DatabasePropertyTypeJS
 import com.gridnine.jasmine.common.core.model.ObjectReferenceJS
+import com.gridnine.jasmine.common.standard.model.domain.SortOrderTypeJS
 import com.gridnine.jasmine.common.standard.model.rest.GetWorkspaceRequestJS
 import com.gridnine.jasmine.jtasks.common.core.model.domain.TaskPriorityJS
 import com.gridnine.jasmine.jtasks.common.core.model.domain.TaskStatusJS
@@ -13,6 +14,7 @@ import com.gridnine.jasmine.jtasks.common.core.model.domain.TaskTypeJS
 import com.gridnine.jasmine.web.core.common.ActivatorJS
 import com.gridnine.jasmine.web.core.common.EnvironmentJS
 import com.gridnine.jasmine.web.core.common.RegistryJS
+import com.gridnine.jasmine.web.core.reflection.ReflectionFactoryJS
 import com.gridnine.jasmine.web.core.remote.WebCoreMetaRegistriesUpdater
 import com.gridnine.jasmine.web.core.remote.launch
 import com.gridnine.jasmine.web.core.ui.WebUiLibraryAdapter
@@ -23,8 +25,9 @@ import com.gridnine.jasmine.web.standard.StandardRestClient
 import com.gridnine.jasmine.web.standard.mainframe.ActionWrapper
 import com.gridnine.jasmine.web.standard.mainframe.MainFrame
 import com.gridnine.jasmine.web.standard.mainframe.WebActionsHandler
-import com.gridnine.jasmine.web.standard.widgets.WebGridLayoutWidget
+import com.gridnine.jasmine.web.standard.widgets.*
 import com.gridnine.jtasks.common.core.model.domain.TaskIndexJS
+import com.gridnine.jtasks.common.core.model.domain.UserAccountIndexJS
 import com.gridnine.jtasks.web.core.DomainReflectionUtilsJS
 import com.gridnine.jtasks.web.core.RestReflectionUtilsJS
 import com.gridnine.jtasks.web.core.UiReflectionUtilsJS
@@ -34,12 +37,14 @@ import com.gridnine.jtasks.web.core.timer.TimerRecordHandler
 import com.gridnine.jtasks.web.core.userAccount.UserAccountEditorHandler
 import com.gridnine.jtasks.web.core.workspace.JTasksMainFrame
 import kotlinx.browser.window
+import kotlinx.coroutines.delay
 import kotlin.js.Date
 
 const val pluginId = "com.gridnine.jtasks.web.core"
 
 const val draft = true
 
+var executingStressTest = false
 fun main() {
     EnvironmentJS.restBaseUrl = "/ui-rest"
     RegistryJS.get().register(WebJTasksCoreActivator())
@@ -55,12 +60,41 @@ fun main() {
                 fit = true
             }
 
-            val centerContent = WebUiLibraryAdapter.get().createTabsContainer {
+            var centerContent:WebTabsContainer? = null
+            centerContent = WebUiLibraryAdapter.get().createTabsContainer {
                 fit = true
                 tools.add(WebTabsContainerTool().also {
                     it.displayName = "Выход"
                     it.handler = {
                         console.log("Выход")
+                    }
+                })
+                tools.add(WebTabsContainerTool().also {
+                    it.displayName = "Начать стресс тест"
+                    it.handler = {
+                        launch {
+                            executingStressTest = true
+                            var idx = 1
+                            while (executingStressTest) {
+                                idx++
+                                delay(1000)
+                                centerContent!!.addTab {
+                                    title = "Профили ${idx}"
+                                    content = TestProfileListEditor(idx)
+                                }
+                                delay((2000))
+                                centerContent!!.let {
+                                    val tab = it.getTabs()[0]
+                                    it.removeTab(tab.id)
+                                }
+                            }
+                        }
+                    }
+                })
+                tools.add(WebTabsContainerTool().also {
+                    it.displayName = "Закончить стресс тест"
+                    it.handler = {
+                        executingStressTest = false
                     }
                 })
             }
@@ -69,8 +103,10 @@ fun main() {
                     title = it.text
                     closable = true
                     content =  if(it.text.toLowerCase().contains("профил")){
-                        TestProfileListEditor()
-                    } else {
+                        TestProfileListEditor(0)
+                    } else if(it.text.toLowerCase().contains("проект")){
+                        TestProjectditor()
+                    }else {
                         val h = WebUiLibraryAdapter.get().createTag("div")
                         h.setText("Content of ${it.text}")
                         h
@@ -141,8 +177,7 @@ class WebJTasksCoreActivator : ActivatorJS {
     }
 
 }
-
-class TestProfileListEditor: BaseWebNodeWrapper<WebBorderContainer>(){
+class TestProfileListEditor(startIndex: Int): BaseWebNodeWrapper<WebBorderContainer>(){
     init {
         _node = WebUiLibraryAdapter.get().createBorderContainer {
             fit = true
@@ -260,14 +295,14 @@ class TestProfileListEditor: BaseWebNodeWrapper<WebBorderContainer>(){
         val localData = arrayListOf<TaskIndexJS>()
         for(n in 0..100){
             val item = TaskIndexJS()
-            item.assignee = createObjectReference("assignee", n)
+            item.assignee = createObjectReference("assignee", startIndex+n)
             item.created = Date()
             item.dueDate = Date()
-            item.key = "key$n"
-            item.name = "name$n"
+            item.key = "key${startIndex+n}"
+            item.name = "name$${startIndex+n}"
             item.priority = if(n%2 ==0) TaskPriorityJS.MAJOR else TaskPriorityJS.CRITICAL
-            item.project =  createObjectReference("project", n)
-            item.reporter = createObjectReference("reporter", n)
+            item.project =  createObjectReference("project", startIndex+n)
+            item.reporter = createObjectReference("reporter", startIndex+n)
             item.resolved = Date()
             item.status= if(n%2 ==0) TaskStatusJS.NEW else TaskStatusJS.RESOLVED
             item.type =  if(n%2 ==0) TaskTypeJS.BUG else TaskTypeJS.IMPROVEMENT
@@ -280,6 +315,69 @@ class TestProfileListEditor: BaseWebNodeWrapper<WebBorderContainer>(){
     }
 
     private fun createObjectReference(key: String, n: Int): ObjectReferenceJS? {
-            return ObjectReferenceJS("object", "$key$n", "$key$n")
+        return ObjectReferenceJS("object", "$key$n", "$key$n")
     }
 }
+class TestProjectditor: BaseWebNodeWrapper<WebGridLayoutWidget>() {
+    init {
+        _node = WebGridLayoutWidget {
+            width = "100%"
+        }
+        _node.setColumnsWidths("600px")
+        val enum1 = EnumValueWidget<SortOrderTypeJS>{
+            width = "100%"
+            allowNull = true
+            enumClass = SortOrderTypeJS::class
+        }
+        enum1.setValue(SortOrderTypeJS.ASC)
+        val enum2 = EnumMultiValuesWidget<SortOrderTypeJS>{
+            width = "100%"
+            showClearIcon = true
+            enumClassName = ReflectionFactoryJS.get().getQualifiedClassName(SortOrderTypeJS::class)
+        }
+        enum2.setValues(arrayListOf(SortOrderTypeJS.ASC))
+        enum2.showValidation("Error")
+        _node.addRow(WebGridCellWidget("Test ", enum1))
+        _node.addRow(WebGridCellWidget("Test 2", enum2))
+        val ett1 = EntitySelectWidget{
+            width = "100%"
+            showClearIcon = true
+            showLinkButton = true
+            handler = AutocompleteHandler.createMetadataBasedAutocompleteHandler(UserAccountIndexJS.objectId+"JS")
+        }
+        _node.addRow(WebGridCellWidget("Entity 1", ett1))
+
+        val ett2 = EntityMultiValuesWidget{
+            width = "100%"
+            showClearIcon = true
+            handler = AutocompleteHandler.createMetadataBasedAutocompleteHandler(UserAccountIndexJS.objectId+"JS")
+        }
+        _node.addRow(WebGridCellWidget("Entity 2", ett2))
+        val date = DateBoxWidget{
+            width = "100%"
+            showClearIcon = true
+        }
+        date.setValue(Date())
+        _node.addRow(WebGridCellWidget("Date", date))
+        val dateTime = DateTimeBoxWidget{
+            width = "100%"
+            showClearIcon = true
+        }
+        dateTime.setValue(Date())
+        _node.addRow(WebGridCellWidget("Date time", dateTime))
+        val text = TextBoxWidget{
+            width = "100%"
+            showClearIcon = true
+        }
+        text.setValue("test")
+        _node.addRow(WebGridCellWidget("Text", text))
+        val password = WebUiLibraryAdapter.get().createPasswordBox{
+            width = "100%"
+        }
+        password.setValue("test")
+        _node.addRow(WebGridCellWidget("Password", password))
+    }
+
+
+}
+
