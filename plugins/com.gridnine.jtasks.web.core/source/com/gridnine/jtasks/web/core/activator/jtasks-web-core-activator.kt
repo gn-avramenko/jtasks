@@ -25,6 +25,7 @@ import com.gridnine.jasmine.web.standard.StandardRestClient
 import com.gridnine.jasmine.web.standard.mainframe.ActionWrapper
 import com.gridnine.jasmine.web.standard.mainframe.MainFrame
 import com.gridnine.jasmine.web.standard.mainframe.WebActionsHandler
+import com.gridnine.jasmine.web.standard.utils.StandardUiUtils
 import com.gridnine.jasmine.web.standard.widgets.*
 import com.gridnine.jtasks.common.core.model.domain.TaskIndexJS
 import com.gridnine.jtasks.common.core.model.domain.UserAccountIndexJS
@@ -54,6 +55,52 @@ fun main() {
     if(draft){
         launch {
             RegistryJS.get().allOf(ActivatorJS.TYPE).forEach { it.activate() }
+            if(false){
+                val innerBorderContainer = WebUiLibraryAdapter.get().createBorderContainer {
+                    fit = true
+                }
+                innerBorderContainer.setNorthRegion {
+                    content = WebLabelWidget("north")
+                }
+                val centerContent = WebUiLibraryAdapter.get().createTag("div")
+                for(n in 0..100){
+                    val label =   WebUiLibraryAdapter.get().createTag("div" )
+                    label.setText("text${n}")
+                    centerContent.getChildren().addChild(label)
+                }
+                innerBorderContainer.setCenterRegion {
+                    content = centerContent
+                }
+//                val tabsWrapper = WebUiLibraryAdapter.get().createBorderContainer {
+//                    fit = true
+//                }
+//                tabsWrapper.setNorthRegion {
+//                    content = WebLabelWidget("tabs")
+//                }
+//                tabsWrapper.setCenterRegion {
+//                    content = innerBorderContainer
+//                }
+                val tabs = WebUiLibraryAdapter.get().createTabsContainer {
+                    height ="100%"
+                    width = "100%"
+                }
+                tabs.addTab {
+                    title = "Tab"
+                    content = innerBorderContainer
+                }
+                val outerBorderContainer = WebUiLibraryAdapter.get().createBorderContainer {
+                    fit = true
+                }
+                outerBorderContainer.setWestRegion {
+                    width = 200
+                    content = WebLabelWidget("west")
+                }
+                outerBorderContainer.setCenterRegion {
+                    content = tabs
+                }
+                WebUiLibraryAdapter.get().showWindow(outerBorderContainer)
+                return@launch
+            }
             val workspace = StandardRestClient.standard_standard_getWorkspace(GetWorkspaceRequestJS()).workspace
             val leftContent = WebUiLibraryAdapter.get().createTree {
                 mold = WebTreeMold.NAVIGATION
@@ -105,7 +152,8 @@ fun main() {
                     content =  if(it.text.toLowerCase().contains("профил")){
                         TestProfileListEditor(0)
                     } else if(it.text.toLowerCase().contains("проект")){
-                        TestProjectditor()
+                        //TestProjectditor()
+                        TestPanelEditor()
                     }else {
                         val h = WebUiLibraryAdapter.get().createTag("div")
                         h.setText("Content of ${it.text}")
@@ -318,12 +366,56 @@ class TestProfileListEditor(startIndex: Int): BaseWebNodeWrapper<WebBorderContai
         return ObjectReferenceJS("object", "$key$n", "$key$n")
     }
 }
-class TestProjectditor: BaseWebNodeWrapper<WebGridLayoutWidget>() {
+class TestPanelEditor: BaseWebNodeWrapper<WebBorderContainer>() {
     init {
-        _node = WebGridLayoutWidget {
+        _node = WebUiLibraryAdapter.get().createBorderContainer {
+            fit = true
+        }
+        _node.setNorthRegion {
+            content = WebLabelWidget("north")
+        }
+        val panel = WebUiLibraryAdapter.get().createPanel {
+            fit = true
+            tools.add(PanelToolConfiguration(MiscUtilsJS.createUUID(), "core:link"))
+            content = WebLabelWidget("center")
+        }
+        panel.setToolHandler{ key, webPanel ->
+            console.log("pressed $key")
+        }
+
+        panel.setTitle("Title")
+        _node.setCenterRegion {
+            content = panel
+        }
+    }
+}
+class TestProjectditor: BaseWebNodeWrapper<WebBorderContainer>() {
+    init {
+        _node = WebUiLibraryAdapter.get().createBorderContainer {
+            fit = true
+        }
+        _node.setNorthRegion {
+            content = WebLabelWidget("north")
+        }
+//        val centerContent = WebUiLibraryAdapter.get().createTag("div")
+////        centerContent.getStyle().setParameters("overflowY" to "scroll")
+////        centerContent.getStyle().setParameters("height" to "100vh")
+//        for(n in 0..100){
+//            val label =   WebUiLibraryAdapter.get().createTag("div" )
+//            label.setText("text${n}")
+//            centerContent.getChildren().addChild(label)
+//        }
+//        _node.setCenterRegion {
+//            content = centerContent
+//        }
+//
+        val grid = WebGridLayoutWidget {
             width = "100%"
         }
-        _node.setColumnsWidths("600px")
+        _node.setCenterRegion {
+            content = grid
+        }
+        grid.setColumnsWidths("600px")
         val enum1 = EnumValueWidget<SortOrderTypeJS>{
             width = "100%"
             allowNull = true
@@ -337,45 +429,84 @@ class TestProjectditor: BaseWebNodeWrapper<WebGridLayoutWidget>() {
         }
         enum2.setValues(arrayListOf(SortOrderTypeJS.ASC))
         enum2.showValidation("Error")
-        _node.addRow(WebGridCellWidget("Test ", enum1))
-        _node.addRow(WebGridCellWidget("Test 2", enum2))
+        grid.addRow(WebGridCellWidget("Test ", enum1))
+        grid.addRow(WebGridCellWidget("Test 2", enum2))
         val ett1 = EntitySelectWidget{
             width = "100%"
             showClearIcon = true
             showLinkButton = true
             handler = AutocompleteHandler.createMetadataBasedAutocompleteHandler(UserAccountIndexJS.objectId+"JS")
         }
-        _node.addRow(WebGridCellWidget("Entity 1", ett1))
+        grid.addRow(WebGridCellWidget("Entity 1", ett1))
 
         val ett2 = EntityMultiValuesWidget{
             width = "100%"
             showClearIcon = true
             handler = AutocompleteHandler.createMetadataBasedAutocompleteHandler(UserAccountIndexJS.objectId+"JS")
         }
-        _node.addRow(WebGridCellWidget("Entity 2", ett2))
+        grid.addRow(WebGridCellWidget("Entity 2", ett2))
         val date = DateBoxWidget{
             width = "100%"
             showClearIcon = true
         }
         date.setValue(Date())
-        _node.addRow(WebGridCellWidget("Date", date))
+        grid.addRow(WebGridCellWidget("Date", date))
         val dateTime = DateTimeBoxWidget{
             width = "100%"
             showClearIcon = true
         }
         dateTime.setValue(Date())
-        _node.addRow(WebGridCellWidget("Date time", dateTime))
+        grid.addRow(WebGridCellWidget("Date time", dateTime))
         val text = TextBoxWidget{
             width = "100%"
             showClearIcon = true
         }
         text.setValue("test")
-        _node.addRow(WebGridCellWidget("Text", text))
+        grid.addRow(WebGridCellWidget("Text", text))
         val password = WebUiLibraryAdapter.get().createPasswordBox{
             width = "100%"
         }
         password.setValue("test")
-        _node.addRow(WebGridCellWidget("Password", password))
+        grid.addRow(WebGridCellWidget("Password", password))
+        val floatNumber = FloatNumberBoxWidget{
+            width = "100%"
+        }
+        floatNumber.setValue(2.0)
+        grid.addRow(WebGridCellWidget("Float", floatNumber))
+        val intNumber = IntegerNumberBoxWidget{
+            width = "100%"
+        }
+        intNumber.setValue(2)
+        grid.addRow(WebGridCellWidget("Integer", intNumber))
+        val button = WebUiLibraryAdapter.get().createLinkButton {
+            title = "Ошибка"
+        }
+        button.setHandler {
+            StandardUiUtils.showError("Текст ошибки")
+        }
+        grid.addRow(button)
+        val dialogButton = WebUiLibraryAdapter.get().createLinkButton {
+            title = "Диалог"
+        }
+        dialogButton.setHandler {
+            val textBox = TextBoxWidget{
+                width = "100%"
+            }
+            WebUiLibraryAdapter.get().showDialog(textBox){
+                title = "Простой диалог"
+                button {
+                    displayName = "OK"
+                    handler ={ dialog ->
+                        console.log("OK pressed")
+                        dialog.close()
+                    }
+                }
+                cancelButton()
+            }
+        }
+        grid.addRow(dialogButton)
+        val booleanBox = BooleanBoxWidget{}
+        grid.addRow(booleanBox)
     }
 
 
