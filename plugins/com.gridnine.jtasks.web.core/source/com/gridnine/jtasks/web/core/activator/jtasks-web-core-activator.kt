@@ -44,7 +44,7 @@ import kotlin.js.Date
 
 const val pluginId = "com.gridnine.jtasks.web.core"
 
-const val draft = true
+const val draft = false
 
 var executingStressTest = false
 fun main() {
@@ -199,7 +199,7 @@ fun main() {
             }
         }
         val mainFrame = JTasksMainFrame {
-            title = "Таски"
+            title = ""
             navigationWidth = 200
             tools.addAll(mainFrameTools)
         }

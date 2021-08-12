@@ -1,0 +1,20 @@
+.jasmine-logo {
+    background-image: url("t-venzel.png");
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.jtasks-current-task-timer-widget{
+    padding-top: 3px;
+    height:35px;
+}
+.jtasks-current-task-timer-text-element{
+    padding-top: 7px;
+    padding-left: 5px;
+}
+
+.jtasks-html-viewer{
+    border: 1px solid #D3D3D3;
+    border-radius: 5px 5px 5px 5px;
+}
