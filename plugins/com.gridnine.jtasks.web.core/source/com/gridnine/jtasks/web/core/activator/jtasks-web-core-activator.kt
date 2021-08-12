@@ -6,6 +6,7 @@ package com.gridnine.jtasks.web.core.activator
 
 import com.gridnine.jasmine.common.core.meta.DatabasePropertyTypeJS
 import com.gridnine.jasmine.common.core.model.ObjectReferenceJS
+import com.gridnine.jasmine.common.core.model.XeptionJS
 import com.gridnine.jasmine.common.standard.model.domain.SortOrderTypeJS
 import com.gridnine.jasmine.common.standard.model.rest.GetWorkspaceRequestJS
 import com.gridnine.jasmine.jtasks.common.core.model.domain.TaskPriorityJS
@@ -153,7 +154,10 @@ fun main() {
                         TestProfileListEditor(0)
                     } else if(it.text.toLowerCase().contains("проект")){
                         //TestProjectditor()
-                        TestPanelEditor()
+//                        TestPanelEditor()
+                        //TestAccordionEditor()
+//                        TestRteEditor()
+                        TestTreeEditor()
                     }else {
                         val h = WebUiLibraryAdapter.get().createTag("div")
                         h.setText("Content of ${it.text}")
@@ -384,6 +388,107 @@ class TestPanelEditor: BaseWebNodeWrapper<WebBorderContainer>() {
         }
 
         panel.setTitle("Title")
+        _node.setCenterRegion {
+            content = panel
+        }
+    }
+}
+
+class TestTreeEditor: BaseWebNodeWrapper<WebBorderContainer>() {
+    init {
+        _node = WebUiLibraryAdapter.get().createBorderContainer {
+            fit = true
+        }
+        _node.setNorthRegion {
+            content = WebLabelWidget("north")
+        }
+        val tree = WebUiLibraryAdapter.get().createTree {
+            width = "200px"
+            height = "100%"
+            mold = WebTreeMold.STANDARD
+            enableDnd = true
+        }
+        val data = arrayListOf<WebTreeNode>()
+        for(n in 0..10){
+            val parent = WebTreeNode("parent$n", "Parent $n", null)
+            data.add(parent)
+            for(m in 0..5){
+                val child = WebTreeNode("child$n-$m", "Child $n $m", null)
+                parent.children.add(child)
+            }
+        }
+        tree.setData(data)
+        tree.setContextMenuBuilder {
+            if(it.children.isNotEmpty()){
+                null
+            } else {
+                listOf(1,2,3,4).map {
+                    WebContextMenuStandardItem("child ${it}", null, false){
+                        console.log("PRESSED $it")
+                    }
+                }
+            }
+        }
+        tree.setSelectListener {
+            console.log("selected ${it.text}")
+        }
+
+        tree.setOnDropListener { target, source, point ->
+            tree.remove(source.id)
+            tree.insertAfter(source, target.id)
+        }
+
+        _node.setCenterRegion {
+            content = tree
+        }
+    }
+}
+
+class TestRteEditor: BaseWebNodeWrapper<WebBorderContainer>() {
+    init {
+        _node = WebUiLibraryAdapter.get().createBorderContainer {
+            fit = true
+        }
+        val rte = WebUiLibraryAdapter.get().createRichTextEditor {
+            width = "100%"
+            height = "500px"
+        }
+        val button = WebUiLibraryAdapter.get().createLinkButton {
+            title = "Get content"
+        }
+        button.setHandler {
+            console.log(rte.getContent())
+        }
+        _node.setNorthRegion {
+            content = button
+        }
+
+        _node.setCenterRegion {
+            content = rte
+        }
+    }
+}
+class TestAccordionEditor: BaseWebNodeWrapper<WebBorderContainer>() {
+    init {
+        _node = WebUiLibraryAdapter.get().createBorderContainer {
+            fit = true
+        }
+        _node.setNorthRegion {
+            content = WebLabelWidget("north")
+        }
+        val panel = WebUiLibraryAdapter.get().createAccordionContainer {
+            fit = true
+        }
+        panel.addPanel {
+            title = "Panel 1"
+            content = WebLabelWidget("Panel1")
+            id = MiscUtilsJS.createUUID()
+        }
+        panel.addPanel {
+            title = "Panel 2"
+            content = WebLabelWidget("Panel2")
+            id = MiscUtilsJS.createUUID()
+        }
         _node.setCenterRegion {
             content = panel
         }
