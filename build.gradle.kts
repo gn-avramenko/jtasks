@@ -7,7 +7,7 @@ buildscript {
     }
 }
 plugins {
-    id("com.github.node-gradle.node") version("2.2.3")
+    id("com.github.node-gradle.node") version("3.1.0")
 }
 
 
