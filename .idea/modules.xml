@@ -22,7 +22,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.standard.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jasmine.web.standard.iml" group="jtasks" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.common.core.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.common.core.iml" group="jtasks" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.server.core.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.server.core.iml" group="jtasks" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.server.core.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.server.core.test.iml" group="jtasks" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.server.reports.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.server.reports.iml" group="jtasks" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.web.core.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.web.core.iml" group="jtasks" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/jtasks.iml" filepath="$PROJECT_DIR$/.idea/modules/jtasks.iml" group="jtasks" />

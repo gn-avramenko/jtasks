@@ -36,7 +36,7 @@ import java.util.*
 
 class JTasksServerCoreActivator:IPluginActivator {
     override fun configure(config: Properties) {
-        addApp("","jtasks-index","lib/jtasks-index")
+        addApp("","jtasks-index","lib/jtasks-index.war")
         WebPluginsAssociationsRegistry.get().links["com.gridnine.jasmine.web.core"] = "/jasmine-core/com.gridnine.jasmine.web.core.js"
         WebPluginsAssociationsRegistry.get().links["com.gridnine.jasmine.web.easyui"] = "/jasmine-easyui/com.gridnine.jasmine.web.easyui.js"
         WebPluginsAssociationsRegistry.get().links["com.gridnine.jasmine.web.standard"] = "/jasmine-standard/com.gridnine.jasmine.web.standard.js"

@@ -1,0 +1,13 @@
+docker network create jt-network
+
+postgres: jt-user/123456
+
+docker run --name=jt-postgres --network jt-network -d -t -i -e TERM=xterm -p 15433:5432 -v /home/vova/programs/jtasks/postgres/data:/var/lib/postgresql/14/main -v /home/vova/programs/jtasks/postgres/log:/var/log/postgresql -v /home/vova/programs/jtasks/postgres/config:/etc/postgresql/14/main df-postgres
+
+chown -R postgres:postgres /var/log/postgresql
+chown -R postgres:postgres /etc/postgresql
+chown -R postgres:postgres /var/lib/postgresql
+chmod -R 0700 /var/lib/postgresql
+chmod -R 0700 /etc/postgresql
+
+docker run --name=df-app  --network jt-network -i -t -d -e TERM=xterm -p 9443:9443 -p 18004:8004 -p 18005:8005 -p 18006:8006 -v /home/vova/programs/jtasks/application:/programs df-app

@@ -19,6 +19,7 @@ jasmine {
     kotlinCoroutinesJSVersion ="1.4.3"
     libRelativePath = "submodules/jasmine/lib"
     enableWebTasks = true
+    indexWar = "jtasks-index.war"
     plugins("submodules/jasmine/plugins") {
         plugin("com.gridnine.jasmine.common.core")
         plugin("com.gridnine.jasmine.common.spf")
@@ -42,7 +43,7 @@ jasmine {
     plugins("plugins"){
         plugin("com.gridnine.jtasks.common.core")
         plugin("com.gridnine.jtasks.server.core")
-        plugin("com.gridnine.jtasks.server.core.test")
+//        plugin("com.gridnine.jtasks.server.core.test")
         plugin("com.gridnine.jtasks.server.reports")
         plugin("com.gridnine.jtasks.web.core")
     }
@@ -53,6 +54,19 @@ repositories{
 }
 
 apply<com.gridnine.jasmine.gradle.plugin.JasminePlugin>()
+
+task("deploy-smart-home", com.gridnine.jasmine.gradle.plugin.tasks.DeployApplicationTask::class){
+    group = "jenkins"
+    shouldRunAfter("jenkins-dist")
+    host = "192.168.1.42"
+    port = 18005
+}
+
+task("update-index-war", Exec::class){
+    group = "jenkins"
+    executable = "./gradlew"
+    setArgs(arrayListOf("-b", "js-build.gradle.kts", "--stacktrace", "update-index-war"))
+}
 
 
 // task("deploy-locally", DeployApplicationTask::class){

@@ -1,0 +1,43 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          jtasks
+# Required-Start:    $network $local_fs $remote_fs
+# Required-Stop:     $network $local_fs $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: JTasks application
+# Description:  JTasks application
+### END INIT INFO
+
+case "$1" in
+  start)
+    echo "starting jtasks"
+    sudo docker start jt-postgres
+    sudo docker exec jt-postgres /etc/init.d/postgresql start
+    sudo docker start jt-app
+    sudo docker exec jt-app /etc/init.d/jtasks start
+    exit 0
+    ;;
+  stop)
+    echo "stopping jtasks"
+    sudo docker exec jt-app /etc/init.d/jtasks stop
+    sleep 2
+    sudo docker stop jt-app
+    sudo docker exec jt-postgres /etc/init.d/postgresql stop
+    sudo docker stop jt-postgres
+    exit 0
+    ;;
+  term-postgres)
+    echo "starting terminal for jt-postgres"
+    sudo docker exec -t -i jt-postgres bash
+    exit 0
+    ;;
+  term)
+    echo "starting terminal for jt-app"
+    sudo docker exec -t -i jt-app bash
+    exit 0
+    ;;
+esac
+
+echo "unknown command $1"
