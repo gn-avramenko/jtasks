@@ -6,3 +6,5 @@ lib/externals.txt
 data/*
 /temp/
 
+/local-dev/pg-data/
+/local-dev/temp/

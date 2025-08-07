@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$/../../../../../submodules/jasmine/build-scripts">
       <excludeFolder url="file://$MODULE_DIR$/../../../../../submodules/jasmine/build-scripts/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../../../../submodules/jasmine/build-scripts/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../submodules/jasmine/build-scripts/out" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

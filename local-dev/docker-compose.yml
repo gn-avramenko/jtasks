@@ -1,0 +1,19 @@
+name: jtasks
+services:
+
+  db:
+    image: postgres:15.3
+    restart: no
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U admin -d jtasks" ]
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 100
+    volumes:
+      - ./pg-data:/var/lib/postgresql/data
+    command: postgres -c max_prepared_transactions=100
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - "15438:5432"

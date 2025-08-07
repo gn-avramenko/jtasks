@@ -75,13 +75,13 @@ task("update-index-war", Exec::class){
 //     host = "localhost"
 //     port = 21567
 // }
-
-
+//
+//
 //tasks.create("deploy-test", Deplo)
 
-//project.configurations.create("compile")
-//
-//dependencies{
-//    "compile"(files("submodules/jasmine/lib/spf-1.0.jar"))
-//}
+project.configurations.create("compile")
+
+dependencies{
+    "compile"(files("submodules/jasmine/lib/spf-1.0.jar"))
+}
 

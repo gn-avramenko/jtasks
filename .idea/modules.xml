@@ -24,13 +24,15 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.server.core.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.server.core.iml" group="jtasks" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.server.reports.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.server.reports.iml" group="jtasks" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.web.core.iml" filepath="$PROJECT_DIR$/.idea/modules/com.gridnine.jtasks.web.core.iml" group="jtasks" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jtasks.iml" filepath="$PROJECT_DIR$/.idea/modules/jtasks.iml" group="jtasks" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jtasks.iml" filepath="$PROJECT_DIR$/.idea/modules/jtasks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/local-dev/jtasks.local-dev.iml" filepath="$PROJECT_DIR$/.idea/modules/local-dev/jtasks.local-dev.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/local-dev/jtasks.local-dev.main.iml" filepath="$PROJECT_DIR$/.idea/modules/local-dev/jtasks.local-dev.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/local-dev/jtasks.local-dev.test.iml" filepath="$PROJECT_DIR$/.idea/modules/local-dev/jtasks.local-dev.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/submodules/jtasks.submodules.iml" filepath="$PROJECT_DIR$/.idea/modules/submodules/jtasks.submodules.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/submodules/jasmine/jtasks.submodules.jasmine.iml" filepath="$PROJECT_DIR$/.idea/modules/submodules/jasmine/jtasks.submodules.jasmine.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/submodules/jasmine/build-scripts/jtasks.submodules.jasmine.build-scripts.iml" filepath="$PROJECT_DIR$/.idea/modules/submodules/jasmine/build-scripts/jtasks.submodules.jasmine.build-scripts.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/submodules/jasmine/build-scripts/jtasks.submodules.jasmine.build-scripts.main.iml" filepath="$PROJECT_DIR$/.idea/modules/submodules/jasmine/build-scripts/jtasks.submodules.jasmine.build-scripts.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/submodules/jasmine/build-scripts/jtasks.submodules.jasmine.build-scripts.test.iml" filepath="$PROJECT_DIR$/.idea/modules/submodules/jasmine/build-scripts/jtasks.submodules.jasmine.build-scripts.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/own.jtasks.iml" filepath="$PROJECT_DIR$/.idea/modules/own.jtasks.iml" />
     </modules>
   </component>
 </project>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module version="4">
    <component name="NewModuleRootManager">
-      <output url="file://$MODULE_DIR$/../../plugins/com.gridnine.jtasks.server.reports/classes"/>
-      <output-test url="file://$MODULE_DIR$/../../plugins/com.gridnine.jtasks.server.reports/classes"/>
-      <content url="file://$MODULE_DIR$/../../plugins/com.gridnine.jtasks.server.reports">
-         <sourceFolder url="file://$MODULE_DIR$/../../plugins/com.gridnine.jtasks.server.reports/source" isTestSource="false"/>
-         <sourceFolder url="file://$MODULE_DIR$/../../plugins/com.gridnine.jtasks.server.reports/source-gen" isTestSource="false" generated="true"/>
-         <excludeFolder url="file://$MODULE_DIR$/../../plugins/com.gridnine.jtasks.server.reports/classes"/>
+      <output url="file://$MODULE_DIR$/../../plugins\com.gridnine.jtasks.server.reports/classes"/>
+      <output-test url="file://$MODULE_DIR$/../../plugins\com.gridnine.jtasks.server.reports/classes"/>
+      <content url="file://$MODULE_DIR$/../../plugins\com.gridnine.jtasks.server.reports">
+         <sourceFolder url="file://$MODULE_DIR$/../../plugins\com.gridnine.jtasks.server.reports/source" isTestSource="false"/>
+         <sourceFolder url="file://$MODULE_DIR$/../../plugins\com.gridnine.jtasks.server.reports/source-gen" isTestSource="false" generated="true"/>
+         <excludeFolder url="file://$MODULE_DIR$/../../plugins\com.gridnine.jtasks.server.reports/classes"/>
       </content>
       <orderEntry type="sourceFolder" forTests="false"/>
       <orderEntry type="inheritedJdk"/>

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="14" />
+    <bytecodeTargetLevel target="14">
+      <module name="jtasks.local-dev" target="15" />
+      <module name="jtasks.local-dev.main" target="15" />
+      <module name="jtasks.local-dev.test" target="15" />
+      <module name="jtasks.submodules.jasmine.build-scripts" target="15" />
+      <module name="jtasks.submodules.jasmine.build-scripts.main" target="15" />
+      <module name="jtasks.submodules.jasmine.build-scripts.test" target="15" />
+    </bytecodeTargetLevel>
   </component>
 </project>
