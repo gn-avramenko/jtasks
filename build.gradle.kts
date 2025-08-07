@@ -55,16 +55,16 @@ repositories{
 
 apply<com.gridnine.jasmine.gradle.plugin.JasminePlugin>()
 
-task("deploy-smart-home", com.gridnine.jasmine.gradle.plugin.tasks.DeployApplicationTask::class){
+task("deploy-home", com.gridnine.jasmine.gradle.plugin.tasks.DeployApplicationTask::class){
     group = "jenkins"
     shouldRunAfter("jenkins-dist")
-    host = "192.168.1.42"
+    host = "192.168.1.83"
     port = 18005
 }
 
 task("update-index-war", Exec::class){
     group = "jenkins"
-    executable = "./gradlew"
+    executable = "gradlew.bat"
     setArgs(arrayListOf("-b", "js-build.gradle.kts", "--stacktrace", "update-index-war"))
 }
 

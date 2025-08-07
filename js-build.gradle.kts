@@ -26,6 +26,9 @@ kotlin {
             kotlin.srcDir("plugins/com.gridnine.jtasks.web.core/source-gen")
         }
         browser{
+            dceTask {
+                dceOptions.devMode = true
+            }
             distribution {
                 directory = File(project.rootDir, "temp/js/output/")
             }
